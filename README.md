@@ -117,10 +117,6 @@ Archivos finales en:
 - `data/clean/delitos_sexuales.csv`
 - `data/clean/hurtos_personas.csv`
 
-## 💡 Nota importante
-
-En `homicidios`, la columna `fecha_hecho` queda guardada solo con la fecha, sin la hora `00:00:00.000`, para dejar el archivo más limpio y consistente. 🗓️
-
 ## 🌟 Estado del proyecto
 
 Proyecto funcional para:
