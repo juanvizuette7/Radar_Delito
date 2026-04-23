@@ -1,6 +1,6 @@
 # 🚨 Proyecto de Criminalidad en Colombia
 
-Un mini pipeline de datos para **descargar, limpiar y organizar** información de criminalidad en Colombia usando **Python + PySpark**.  
+Un pipeline de datos para **descargar, limpiar y organizar** información de criminalidad en Colombia usando **Python + PySpark**.  
 El proyecto toma datos abiertos, los guarda en `data/raw`, los procesa y deja una versión lista para análisis en `data/clean`. 📊
 
 ## ✨ ¿Qué hace este proyecto?
