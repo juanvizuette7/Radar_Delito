@@ -1,7 +1,7 @@
 # 🚨 Proyecto de Criminalidad en Colombia
 
-Un pipeline de datos para **descargar, limpiar y organizar** información de criminalidad en Colombia usando **Python + PySpark**.  
-El proyecto toma datos abiertos, los guarda en `data/raw`, los procesa y deja una versión lista para análisis en `data/clean`. 📊
+Un mini pipeline de datos para **descargar, limpiar y organizar** información de criminalidad en Colombia usando **Python + PySpark**.  
+El flujo toma datos abiertos, los guarda en `data/raw`, los limpia en `data/clean` y también los deja listos dentro de **PostgreSQL** para análisis y consultas. 📊
 
 ## ✨ ¿Qué hace este proyecto?
 
@@ -11,7 +11,8 @@ El proyecto toma datos abiertos, los guarda en `data/raw`, los procesa y deja un
 - 🧠 Corrige formatos de fecha y agrega `FECHA`, `ANO` y `MES`
 - 📍 Normaliza ubicaciones como `municipio` y `departamento`
 - 🔁 Consolida filas repetidas sumando `cantidad`
-- 💾 Guarda los resultados finales en `data/clean`
+- 💾 Guarda CSV limpios en `data/clean`
+- 🐘 Crea y carga tablas en PostgreSQL
 - ✅ Muestra tablas de ejemplo y resúmenes de limpieza en consola
 
 ## 🧱 Estructura del proyecto
@@ -29,7 +30,10 @@ proyecto_criminalidad/
 │       └── hurtos_personas.csv
 ├── src/
 │   ├── ingesta_selenium.py
-│   └── procesamiento.py
+│   ├── procesamiento.py
+│   └── cargar_postgres.py
+├── .env.example
+├── requirements.txt
 └── README.md
 ```
 
@@ -49,15 +53,16 @@ Fuentes configuradas en el proyecto:
 
 - 🐍 Python 3.10 o superior
 - ☕ Java instalado para ejecutar PySpark
+- 🐘 PostgreSQL instalado y corriendo
 - 📦 Librerías de Python:
 
 ```bash
-pip install pyspark requests
+pip install -r requirements.txt
 ```
 
 ## 🚀 Cómo ejecutar el proyecto
 
-Ejecuta siempre desde la raíz del proyecto:
+Ejecuta siempre desde la raíz del proyecto.
 
 ### 1. Descargar los datos crudos
 
@@ -65,22 +70,55 @@ Ejecuta siempre desde la raíz del proyecto:
 python src/ingesta_selenium.py
 ```
 
-Esto deja los archivos en `data/raw`.  
-Aunque el archivo se llama `ingesta_selenium.py`, actualmente la descarga se hace con `requests`. 🌐
-
 ### 2. Procesar y limpiar los datos
 
 ```bash
 python src/procesamiento.py
 ```
 
-Esto:
+### 3. Configurar PostgreSQL
 
-- limpia columnas y valores
-- corrige fechas
-- elimina registros inválidos
-- consolida duplicados sin perder la suma de `cantidad`
-- guarda los resultados en `data/clean`
+Crea tu archivo `.env` desde la plantilla:
+
+```bash
+copy .env.example .env
+```
+
+Luego completa tu password real en `.env`.
+
+Variables incluidas:
+
+- `PGHOST`
+- `PGPORT`
+- `PGUSER`
+- `PGPASSWORD`
+- `PGDATABASE`
+- `PGSCHEMA`
+- `PGMAINTENANCE_DB`
+
+### 4. Cargar los datos en PostgreSQL
+
+```bash
+python src/cargar_postgres.py
+```
+
+Si quieres cargar solo un dataset:
+
+```bash
+python src/cargar_postgres.py --only homicidios
+python src/cargar_postgres.py --only delitos_sexuales hurtos_personas
+```
+
+El script:
+
+- 🔌 se conecta a PostgreSQL
+- 🏗️ crea la base si no existe
+- 🧱 crea el esquema si no existe
+- 🗃️ crea las tablas necesarias
+- ♻️ vacía cada tabla antes de recargarla
+- 📥 copia los CSV limpios desde `data/clean`
+- 📌 crea índices básicos por fecha y ubicación
+- ✅ imprime mensajes `CORRECTO` por cada carga
 
 ## 🧼 Reglas principales de limpieza
 
@@ -109,21 +147,41 @@ Cuando corres `python src/procesamiento.py`, el script imprime:
 - mensajes `CORRECTO` por cada proceso
 - un resumen general al final
 
+Cuando corres `python src/cargar_postgres.py`, el script imprime:
+
+- los datos de conexión usados
+- un mensaje `CORRECTO` por cada tabla cargada
+- un mensaje final `TODO BIEN`
+
 ## 📦 Salida esperada
 
-Archivos finales en:
+Archivos finales:
 
 - `data/clean/homicidios.csv`
 - `data/clean/delitos_sexuales.csv`
 - `data/clean/hurtos_personas.csv`
 
+Objetos creados en PostgreSQL:
+
+- base `criminalidad` si no existía
+- esquema `criminalidad`
+- tabla `criminalidad.homicidios`
+- tabla `criminalidad.delitos_sexuales`
+- tabla `criminalidad.hurtos_personas`
+
+## 💡 Nota importante
+
+En `homicidios`, la columna `fecha_hecho` queda guardada solo con la fecha, sin la hora `00:00:00.000`, para dejar el archivo más limpio y consistente. 🗓️
+
+La contraseña no se deja en el código: se configura por `.env`. 🔐
 ## 🌟 Estado del proyecto
 
 Proyecto funcional para:
 
 - prácticas de ingeniería de datos
 - limpieza de datos con PySpark
-- análisis exploratorio posterior en notebooks o dashboards
+- análisis exploratorio posterior en notebooks
+- consultas y dashboards sobre PostgreSQL
 
 ---
 
