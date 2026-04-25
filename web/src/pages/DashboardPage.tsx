@@ -4,7 +4,7 @@ import { DashboardEmbed } from "../components/DashboardEmbed";
 import { InsightCard } from "../components/InsightCard";
 import { KPI } from "../components/KPI";
 import { PageReveal } from "../components/PageReveal";
-import { DashboardConfig, powerBiUrl } from "../data/dashboards";
+import { DashboardConfig } from "../data/dashboards";
 
 type DashboardPageProps = {
   dashboard: DashboardConfig;
@@ -107,7 +107,7 @@ export function DashboardPage({ dashboard }: DashboardPageProps) {
         <div className="grid gap-6 xl:grid-cols-[1.4fr_0.6fr]">
           <DashboardEmbed
             title={dashboard.title}
-            url={powerBiUrl}
+            url={dashboard.embedUrl}
             accentClass={dashboard.accentClass}
           />
 

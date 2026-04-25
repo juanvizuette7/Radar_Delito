@@ -1,12 +1,12 @@
 import {
   Activity,
   ArrowUpRight,
+  CarFront,
+  LucideIcon,
   ShieldAlert,
   Siren,
   Sparkles,
   Target,
-  CarFront,
-  LucideIcon,
 } from "lucide-react";
 
 export type DashboardKpi = {
@@ -24,6 +24,7 @@ export type DashboardInsight = {
 export type DashboardConfig = {
   key: "homicidios" | "sexuales" | "hurtos";
   path: string;
+  embedUrl: string;
   navLabel: string;
   title: string;
   subtitle: string;
@@ -39,13 +40,17 @@ export type DashboardConfig = {
   tags: string[];
 };
 
-export const powerBiUrl =
+export const powerBiBaseUrl =
   "https://app.powerbi.com/view?r=eyJrIjoiMzg3YjkwODYtZTVhZS00MjUwLTkxNzMtMGQ3MWExNTM2ZjIwIiwidCI6IjhkMzY4MzZlLTZiNzUtNGRlNi1iYWI5LTVmNGIxNzc1NDI3ZiIsImMiOjR9";
+
+const withPageName = (pageName: string) =>
+  `${powerBiBaseUrl}&pageName=${pageName}`;
 
 export const dashboards: DashboardConfig[] = [
   {
     key: "homicidios",
     path: "/homicidios",
+    embedUrl: withPageName("677a4457658e84a21853"),
     navLabel: "Homicidios",
     title: "Centro de monitoreo de homicidios",
     subtitle: "Detección territorial y lectura táctica por modalidad",
@@ -105,6 +110,7 @@ export const dashboards: DashboardConfig[] = [
   {
     key: "sexuales",
     path: "/sexuales",
+    embedUrl: withPageName("601c0c7720683d5689a6"),
     navLabel: "Delitos sexuales",
     title: "Radar de delitos sexuales",
     subtitle: "Perfil poblacional y análisis por tipología delictiva",
@@ -164,6 +170,7 @@ export const dashboards: DashboardConfig[] = [
   {
     key: "hurtos",
     path: "/hurtos",
+    embedUrl: withPageName("b6636cc114d3e4043487"),
     navLabel: "Hurto de vehículos",
     title: "Sala analítica de hurto de vehículos",
     subtitle: "Seguimiento de modalidades, territorios y patrones operativos",
