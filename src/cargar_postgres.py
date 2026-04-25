@@ -1,82 +1,241 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import os
 from dataclasses import dataclass
+from datetime import date
 from pathlib import Path
+from typing import Callable
 
 import psycopg2
 from psycopg2 import sql
+from psycopg2.extras import execute_batch
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 CLEAN_DIR = BASE_DIR / "data" / "clean"
 ENV_PATH = BASE_DIR / ".env"
+PUBLIC_SCHEMA = "public"
+
+
+def as_text(value: str) -> str | None:
+    return value or None
+
+
+def as_int(value: str) -> int | None:
+    return int(value) if value else None
+
+
+def as_date(value: str) -> date | None:
+    return date.fromisoformat(value) if value else None
+
+
+def reported_flag(value: str, not_reported_label: str) -> bool | None:
+    if not value:
+        return None
+    return value != not_reported_label
 
 
 @dataclass(frozen=True)
 class DatasetConfig:
     file_name: str
     table_name: str
-    columns_sql: str
+    create_sql: str
+    insert_columns: list[str]
+    row_builder: Callable[[dict[str, str]], tuple[object, ...]]
+
+
+def build_homicidios_row(row: dict[str, str]) -> tuple[object, ...]:
+    modalidad = as_text(row["_modalidad_presunta"])
+    fecha = as_date(row["FECHA"])
+    ano = as_int(row["ANO"])
+    mes = as_int(row["MES"])
+    return (
+        as_date(row["fecha_hecho"]),
+        as_text(row["cod_depto"]),
+        as_text(row["departamento"]),
+        as_text(row["cod_muni"]),
+        as_text(row["municipio"]),
+        as_text(row["zona"]),
+        as_text(row["sexo"]),
+        as_text(row["arma_medio"]),
+        modalidad,
+        reported_flag(row["_modalidad_presunta"], "NO REPORTADA"),
+        as_text(row["spoa_caracterizacion"]),
+        as_int(row["cantidad"]),
+        fecha,
+        ano,
+        mes,
+        f"{ano}-{mes:02d}" if ano is not None and mes is not None else None,
+    )
+
+
+def build_delitos_row(row: dict[str, str]) -> tuple[object, ...]:
+    fecha = as_date(row["FECHA"])
+    ano = as_int(row["ANO"])
+    mes = as_int(row["MES"])
+    return (
+        as_text(row["departamento"]),
+        as_text(row["municipio"]),
+        as_text(row["codigo_dane"]),
+        as_text(row["armas_medios"]),
+        reported_flag(row["armas_medios"], "NO REPORTADO"),
+        as_text(row["fecha_hecho"]),
+        fecha,
+        ano,
+        mes,
+        f"{ano}-{mes:02d}" if ano is not None and mes is not None else None,
+        as_text(row["genero"]),
+        as_text(row["grupo_etario"]),
+        as_text(row["delito"]),
+        as_int(row["cantidad"]),
+    )
+
+
+def build_hurtos_row(row: dict[str, str]) -> tuple[object, ...]:
+    fecha = as_date(row["FECHA"])
+    ano = as_int(row["ANO"])
+    mes = as_int(row["MES"])
+    return (
+        as_text(row["departamento"]),
+        as_text(row["municipio"]),
+        as_text(row["codigo_dane"]),
+        as_text(row["armas_medios"]),
+        reported_flag(row["armas_medios"], "NO REPORTADO"),
+        as_text(row["fecha_hecho"]),
+        fecha,
+        ano,
+        mes,
+        f"{ano}-{mes:02d}" if ano is not None and mes is not None else None,
+        as_text(row["genero"]),
+        as_text(row["grupo_etario"]),
+        as_text(row["tipo_de_hurto"]),
+        as_int(row["cantidad"]),
+    )
 
 
 DATASETS = {
     "homicidios": DatasetConfig(
         file_name="homicidios.csv",
         table_name="homicidios",
-        columns_sql="""
-            fecha_hecho DATE,
-            cod_depto TEXT,
-            departamento TEXT,
-            cod_muni TEXT,
-            municipio TEXT,
-            zona TEXT,
-            sexo TEXT,
-            arma_medio TEXT,
-            _modalidad_presunta TEXT,
-            spoa_caracterizacion TEXT,
-            cantidad INTEGER,
-            "FECHA" DATE,
-            "ANO" INTEGER,
-            "MES" INTEGER
+        create_sql="""
+            CREATE TABLE public.homicidios (
+                fecha_hecho DATE,
+                cod_depto TEXT,
+                departamento TEXT,
+                cod_muni TEXT,
+                municipio TEXT,
+                zona TEXT,
+                sexo TEXT,
+                arma_medio TEXT,
+                modalidad_presunta TEXT,
+                modalidad_reportada BOOLEAN,
+                spoa_caracterizacion TEXT,
+                cantidad INTEGER,
+                fecha DATE,
+                ano INTEGER,
+                mes INTEGER,
+                periodo TEXT
+            )
         """,
+        insert_columns=[
+            "fecha_hecho",
+            "cod_depto",
+            "departamento",
+            "cod_muni",
+            "municipio",
+            "zona",
+            "sexo",
+            "arma_medio",
+            "modalidad_presunta",
+            "modalidad_reportada",
+            "spoa_caracterizacion",
+            "cantidad",
+            "fecha",
+            "ano",
+            "mes",
+            "periodo",
+        ],
+        row_builder=build_homicidios_row,
     ),
     "delitos_sexuales": DatasetConfig(
         file_name="delitos_sexuales.csv",
         table_name="delitos_sexuales",
-        columns_sql="""
-            departamento TEXT,
-            municipio TEXT,
-            codigo_dane TEXT,
-            armas_medios TEXT,
-            fecha_hecho TEXT,
-            genero TEXT,
-            grupo_etario TEXT,
-            cantidad INTEGER,
-            delito TEXT,
-            "FECHA" DATE,
-            "ANO" INTEGER,
-            "MES" INTEGER
+        create_sql="""
+            CREATE TABLE public.delitos_sexuales (
+                departamento TEXT,
+                municipio TEXT,
+                codigo_dane TEXT,
+                armas_medios TEXT,
+                armas_medios_reportado BOOLEAN,
+                fecha_hecho TEXT,
+                fecha DATE,
+                ano INTEGER,
+                mes INTEGER,
+                periodo TEXT,
+                genero TEXT,
+                grupo_etario TEXT,
+                delito TEXT,
+                cantidad INTEGER
+            )
         """,
+        insert_columns=[
+            "departamento",
+            "municipio",
+            "codigo_dane",
+            "armas_medios",
+            "armas_medios_reportado",
+            "fecha_hecho",
+            "fecha",
+            "ano",
+            "mes",
+            "periodo",
+            "genero",
+            "grupo_etario",
+            "delito",
+            "cantidad",
+        ],
+        row_builder=build_delitos_row,
     ),
-    "hurtos_personas": DatasetConfig(
+    "hurtos": DatasetConfig(
         file_name="hurtos_personas.csv",
-        table_name="hurtos_personas",
-        columns_sql="""
-            departamento TEXT,
-            municipio TEXT,
-            codigo_dane TEXT,
-            armas_medios TEXT,
-            fecha_hecho TEXT,
-            genero TEXT,
-            grupo_etario TEXT,
-            tipo_de_hurto TEXT,
-            cantidad INTEGER,
-            "FECHA" DATE,
-            "ANO" INTEGER,
-            "MES" INTEGER
+        table_name="hurtos",
+        create_sql="""
+            CREATE TABLE public.hurtos (
+                departamento TEXT,
+                municipio TEXT,
+                codigo_dane TEXT,
+                armas_medios TEXT,
+                armas_medios_reportado BOOLEAN,
+                fecha_hecho TEXT,
+                fecha DATE,
+                ano INTEGER,
+                mes INTEGER,
+                periodo TEXT,
+                genero TEXT,
+                grupo_etario TEXT,
+                tipo_de_hurto TEXT,
+                cantidad INTEGER
+            )
         """,
+        insert_columns=[
+            "departamento",
+            "municipio",
+            "codigo_dane",
+            "armas_medios",
+            "armas_medios_reportado",
+            "fecha_hecho",
+            "fecha",
+            "ano",
+            "mes",
+            "periodo",
+            "genero",
+            "grupo_etario",
+            "tipo_de_hurto",
+            "cantidad",
+        ],
+        row_builder=build_hurtos_row,
     ),
 }
 
@@ -95,7 +254,7 @@ def load_env_file(path: Path) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Conecta el proyecto a PostgreSQL y carga los CSV limpios."
+        description="Crea la base criminalidad y carga los CSV limpios en PostgreSQL."
     )
     parser.add_argument(
         "--only",
@@ -117,14 +276,11 @@ def get_settings() -> tuple[dict[str, str | int], str, str]:
     }
 
     if not settings["password"]:
-        raise ValueError(
-            "Falta PGPASSWORD. Crea un archivo .env basado en .env.example con tu password real."
-        )
+        raise ValueError("Falta PGPASSWORD en .env.")
 
     target_database = os.getenv("PGDATABASE", "criminalidad")
-    schema_name = os.getenv("PGSCHEMA", "criminalidad")
     maintenance_database = os.getenv("PGMAINTENANCE_DB", "postgres")
-    return settings, target_database, schema_name, maintenance_database
+    return settings, target_database, maintenance_database
 
 
 def open_connection(settings: dict[str, str | int], dbname: str):
@@ -142,8 +298,7 @@ def ensure_database_exists(
                 "SELECT 1 FROM pg_database WHERE datname = %s",
                 (target_database,),
             )
-            exists = cursor.fetchone() is not None
-            if not exists:
+            if cursor.fetchone() is None:
                 cursor.execute(
                     sql.SQL("CREATE DATABASE {}").format(sql.Identifier(target_database))
                 )
@@ -151,85 +306,83 @@ def ensure_database_exists(
         connection.close()
 
 
-def ensure_schema(cursor, schema_name: str) -> None:
+def recreate_table(cursor, config: DatasetConfig) -> None:
     cursor.execute(
-        sql.SQL("CREATE SCHEMA IF NOT EXISTS {}").format(sql.Identifier(schema_name))
-    )
-
-
-def ensure_table(cursor, schema_name: str, config: DatasetConfig) -> None:
-    cursor.execute(
-        sql.SQL("CREATE TABLE IF NOT EXISTS {}.{} ({})").format(
-            sql.Identifier(schema_name),
+        sql.SQL("DROP TABLE IF EXISTS {}.{}").format(
+            sql.Identifier(PUBLIC_SCHEMA),
             sql.Identifier(config.table_name),
-            sql.SQL(config.columns_sql),
         )
     )
+    cursor.execute(config.create_sql)
 
 
-def truncate_table(cursor, schema_name: str, table_name: str) -> None:
-    cursor.execute(
-        sql.SQL("TRUNCATE TABLE {}.{}").format(
-            sql.Identifier(schema_name),
-            sql.Identifier(table_name),
-        )
-    )
-
-
-def create_indexes(cursor, schema_name: str, table_name: str) -> None:
-    index_columns = ["FECHA", "departamento", "municipio"]
+def create_indexes(cursor, table_name: str) -> None:
+    index_columns = ["fecha", "departamento", "municipio", "periodo"]
     for column in index_columns:
         cursor.execute(
-            sql.SQL(
-                "CREATE INDEX IF NOT EXISTS {} ON {}.{} ({})"
-            ).format(
-                sql.Identifier(f"idx_{table_name}_{column.lower()}"),
-                sql.Identifier(schema_name),
+            sql.SQL("CREATE INDEX {} ON {}.{} ({})").format(
+                sql.Identifier(f"idx_{table_name}_{column}"),
+                sql.Identifier(PUBLIC_SCHEMA),
                 sql.Identifier(table_name),
                 sql.Identifier(column),
             )
         )
 
 
-def copy_csv_to_table(connection, cursor, schema_name: str, config: DatasetConfig) -> int:
+def load_csv_rows(config: DatasetConfig) -> list[tuple[object, ...]]:
     source = CLEAN_DIR / config.file_name
     if not source.exists():
         raise FileNotFoundError(f"No existe el archivo limpio requerido: {source}")
 
-    copy_query = sql.SQL(
-        "COPY {}.{} FROM STDIN WITH (FORMAT CSV, HEADER TRUE, ENCODING 'UTF8')"
-    ).format(sql.Identifier(schema_name), sql.Identifier(config.table_name))
-
+    rows: list[tuple[object, ...]] = []
     with source.open("r", encoding="utf-8", newline="") as file_handle:
-        cursor.copy_expert(copy_query.as_string(connection), file_handle)
+        reader = csv.DictReader(file_handle)
+        if reader.fieldnames is None:
+            raise ValueError(f"El archivo no tiene encabezados: {source}")
 
+        for row in reader:
+            rows.append(config.row_builder(row))
+    return rows
+
+
+def insert_rows(cursor, config: DatasetConfig, rows: list[tuple[object, ...]]) -> None:
+    placeholders = sql.SQL(", ").join(sql.Placeholder() for _ in config.insert_columns)
+    column_sql = sql.SQL(", ").join(map(sql.Identifier, config.insert_columns))
+    insert_sql = sql.SQL("INSERT INTO {}.{} ({}) VALUES ({})").format(
+        sql.Identifier(PUBLIC_SCHEMA),
+        sql.Identifier(config.table_name),
+        column_sql,
+        placeholders,
+    )
+    execute_batch(cursor, insert_sql.as_string(cursor.connection), rows, page_size=1000)
+
+
+def count_rows(cursor, table_name: str) -> int:
     cursor.execute(
         sql.SQL("SELECT COUNT(*) FROM {}.{}").format(
-            sql.Identifier(schema_name),
-            sql.Identifier(config.table_name),
+            sql.Identifier(PUBLIC_SCHEMA),
+            sql.Identifier(table_name),
         )
     )
     return int(cursor.fetchone()[0])
 
 
-def print_connection_summary(
-    settings: dict[str, str | int], target_database: str, schema_name: str
-) -> None:
+def print_summary(settings: dict[str, str | int], target_database: str) -> None:
     print("=" * 90)
     print("POSTGRESQL: INICIO DE CARGA")
     print("-" * 90)
     print(
         f"host={settings['host']} port={settings['port']} "
-        f"user={settings['user']} db={target_database} schema={schema_name}"
+        f"user={settings['user']} db={target_database} schema={PUBLIC_SCHEMA}"
     )
 
 
 def main() -> None:
     args = parse_args()
     selected_names = args.only or list(DATASETS.keys())
-    settings, target_database, schema_name, maintenance_database = get_settings()
+    settings, target_database, maintenance_database = get_settings()
 
-    print_connection_summary(settings, target_database, schema_name)
+    print_summary(settings, target_database)
     ensure_database_exists(settings, target_database, maintenance_database)
 
     connection = open_connection(settings, target_database)
@@ -237,22 +390,28 @@ def main() -> None:
 
     try:
         with connection.cursor() as cursor:
-            ensure_schema(cursor, schema_name)
-
             for dataset_name in selected_names:
                 config = DATASETS[dataset_name]
-                ensure_table(cursor, schema_name, config)
-                truncate_table(cursor, schema_name, config.table_name)
-                total_rows = copy_csv_to_table(connection, cursor, schema_name, config)
-                create_indexes(cursor, schema_name, config.table_name)
+                recreate_table(cursor, config)
+                rows = load_csv_rows(config)
+                insert_rows(cursor, config, rows)
+                create_indexes(cursor, config.table_name)
+                total_rows = count_rows(cursor, config.table_name)
                 print(
-                    f"CORRECTO: {dataset_name} cargado en "
-                    f"{schema_name}.{config.table_name} ({total_rows} filas)"
+                    f"CORRECTO: public.{config.table_name} cargada ({total_rows} filas)"
+                )
+
+            print("-" * 90)
+            print("VERIFICACION")
+            for dataset_name in selected_names:
+                table_name = DATASETS[dataset_name].table_name
+                print(
+                    f"SELECT COUNT(*) FROM public.{table_name}; -> {count_rows(cursor, table_name)}"
                 )
 
         connection.commit()
         print("-" * 90)
-        print("TODO BIEN: PostgreSQL conectado y carga completada.")
+        print("TODO BIEN: PostgreSQL listo para consultas y Power BI.")
     except Exception:
         connection.rollback()
         raise

@@ -1,0 +1,19 @@
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
+
+type PageRevealProps = {
+  children: ReactNode;
+};
+
+export function PageReveal({ children }: PageRevealProps) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -18 }}
+      transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}

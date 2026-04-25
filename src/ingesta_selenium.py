@@ -1,11 +1,9 @@
 import requests
 import os
 
-# ================= RUTA DATA LAKE =================
 download_path = os.path.abspath("../data/raw")
 os.makedirs(download_path, exist_ok=True)
 
-# ================= DATASETS =================
 datasets = {
     "homicidios": "https://www.datos.gov.co/resource/m8fd-ahd9.csv?$limit=10000",
     "delitos_sexuales": "https://www.datos.gov.co/resource/fpe5-yrmw.csv?$limit=10000",
@@ -17,7 +15,6 @@ headers = {
     "Accept": "text/csv"
 }
 
-# ================= DESCARGA =================
 for nombre, url in datasets.items():
     print(f"Descargando {nombre}...")
 

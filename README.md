@@ -1,7 +1,7 @@
 # 🚨 Proyecto de Criminalidad en Colombia
 
 Un mini pipeline de datos para **descargar, limpiar y organizar** información de criminalidad en Colombia usando **Python + PySpark**.  
-El flujo toma datos abiertos, los guarda en `data/raw`, los limpia en `data/clean` y también los deja listos dentro de **PostgreSQL** para análisis y consultas. 📊
+El flujo toma datos abiertos, los guarda en `data/raw`, los limpia en `data/clean` y los carga a **PostgreSQL** para análisis y conexión con Power BI. 📊
 
 ## ✨ ¿Qué hace este proyecto?
 
@@ -12,7 +12,7 @@ El flujo toma datos abiertos, los guarda en `data/raw`, los limpia en `data/clea
 - 📍 Normaliza ubicaciones como `municipio` y `departamento`
 - 🔁 Consolida filas repetidas sumando `cantidad`
 - 💾 Guarda CSV limpios en `data/clean`
-- 🐘 Crea y carga tablas en PostgreSQL
+- 🐘 Crea la base `criminalidad` y carga tablas ricas en detalle en PostgreSQL
 - ✅ Muestra tablas de ejemplo y resúmenes de limpieza en consola
 
 ## 🧱 Estructura del proyecto
@@ -32,6 +32,10 @@ proyecto_criminalidad/
 │   ├── ingesta_selenium.py
 │   ├── procesamiento.py
 │   └── cargar_postgres.py
+├── sql/
+│   ├── 01_create_database.sql
+│   ├── 02_create_tables.sql
+│   └── 03_verify_load.sql
 ├── .env.example
 ├── requirements.txt
 └── README.md
@@ -93,7 +97,6 @@ Variables incluidas:
 - `PGUSER`
 - `PGPASSWORD`
 - `PGDATABASE`
-- `PGSCHEMA`
 - `PGMAINTENANCE_DB`
 
 ### 4. Cargar los datos en PostgreSQL
@@ -113,11 +116,11 @@ El script:
 
 - 🔌 se conecta a PostgreSQL
 - 🏗️ crea la base si no existe
-- 🧱 crea el esquema si no existe
-- 🗃️ crea las tablas necesarias
-- ♻️ vacía cada tabla antes de recargarla
-- 📥 copia los CSV limpios desde `data/clean`
+- 🗃️ recrea las tablas finales en `public`
+- 📥 inserta columnas analíticas y descriptivas desde `data/clean`
+- 🧩 conserva variables como modalidad, arma/medio, zona, sexo, género, grupo etario y códigos
 - 📌 crea índices básicos por fecha y ubicación
+- 🔎 ejecuta verificaciones `SELECT COUNT(*)`
 - ✅ imprime mensajes `CORRECTO` por cada carga
 
 ## 🧼 Reglas principales de limpieza
@@ -151,6 +154,7 @@ Cuando corres `python src/cargar_postgres.py`, el script imprime:
 
 - los datos de conexión usados
 - un mensaje `CORRECTO` por cada tabla cargada
+- una verificación de conteos por tabla
 - un mensaje final `TODO BIEN`
 
 ## 📦 Salida esperada
@@ -164,10 +168,27 @@ Archivos finales:
 Objetos creados en PostgreSQL:
 
 - base `criminalidad` si no existía
-- esquema `criminalidad`
-- tabla `criminalidad.homicidios`
-- tabla `criminalidad.delitos_sexuales`
-- tabla `criminalidad.hurtos_personas`
+- tabla `public.homicidios`
+- tabla `public.delitos_sexuales`
+- tabla `public.hurtos`
+
+Columnas útiles adicionales incluidas:
+
+- `public.homicidios`: `arma_medio`, `modalidad_presunta`, `modalidad_reportada`, `zona`, `sexo`, `spoa_caracterizacion`
+- `public.delitos_sexuales`: `codigo_dane`, `armas_medios`, `armas_medios_reportado`, `genero`, `grupo_etario`, `delito`
+- `public.hurtos`: `codigo_dane`, `armas_medios`, `armas_medios_reportado`, `genero`, `grupo_etario`, `tipo_de_hurto`
+
+## 📊 Power BI
+
+Para conectarte desde Power BI Desktop:
+
+- `Servidor`: `localhost`
+- `Puerto`: `5432` o el puerto activo de tu instancia
+- `Base de datos`: `criminalidad`
+- `Modo`: Import
+- `Autenticación`: usuario y contraseña
+
+Si en tu máquina PostgreSQL no está en `5432`, usa el puerto configurado en `.env`.
 
 ## 💡 Nota importante
 
