@@ -1,34 +1,48 @@
+from __future__ import annotations
+
+from pathlib import Path
+
 import requests
-import os
 
-download_path = os.path.abspath("../data/raw")
-os.makedirs(download_path, exist_ok=True)
 
-datasets = {
+BASE_DIR = Path(__file__).resolve().parents[1]
+RAW_DIR = BASE_DIR / "data" / "raw"
+
+DATASETS = {
     "homicidios": "https://www.datos.gov.co/resource/m8fd-ahd9.csv?$limit=10000",
     "delitos_sexuales": "https://www.datos.gov.co/resource/fpe5-yrmw.csv?$limit=10000",
-    "hurtos_personas": "https://www.datos.gov.co/resource/9vha-vh9n.csv?$limit=10000"
+    "hurtos_personas": "https://www.datos.gov.co/resource/9vha-vh9n.csv?$limit=10000",
 }
 
-headers = {
+HEADERS = {
     "User-Agent": "Mozilla/5.0",
-    "Accept": "text/csv"
+    "Accept": "text/csv",
 }
 
-for nombre, url in datasets.items():
-    print(f"Descargando {nombre}...")
 
-    try:
-        r = requests.get(url, headers=headers)
+def download_dataset(name: str, url: str) -> None:
+    print(f"Descargando {name}...")
 
-        if r.status_code == 200 and len(r.content) > 100:
-            with open(f"{download_path}/{nombre}.csv", "wb") as f:
-                f.write(r.content)
-            print(f" {nombre} guardado en Data Lake")
-        else:
-            print(f" Error en {nombre} (status {r.status_code})")
+    response = requests.get(url, headers=HEADERS, timeout=60)
+    if response.status_code != 200 or len(response.content) <= 100:
+        raise RuntimeError(f"Error en {name} (status {response.status_code})")
 
-    except Exception as e:
-        print(f" Error en {nombre}: {e}")
+    destination = RAW_DIR / f"{name}.csv"
+    destination.write_bytes(response.content)
+    print(f"CORRECTO: {name} guardado en {destination}")
 
-print("Data Lake listo")
+
+def main() -> None:
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+
+    for name, url in DATASETS.items():
+        try:
+            download_dataset(name, url)
+        except Exception as error:
+            print(f"ERROR: {name} no pudo descargarse: {error}")
+
+    print("TODO BIEN: data/raw actualizado.")
+
+
+if __name__ == "__main__":
+    main()
