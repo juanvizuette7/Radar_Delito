@@ -2,3 +2,6 @@
 __pycache__/
 *.pyc
 .venv/
+powerbi-dom.png
+powerbi-report.png
+shot-*.png

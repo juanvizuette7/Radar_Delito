@@ -1,4 +1,6 @@
 import { ReactNode } from "react";
+import { useUi } from "../context/UiContext";
+import { siteCopy } from "../data/siteCopy";
 import { Navbar } from "./Navbar";
 
 type LayoutProps = {
@@ -6,13 +8,16 @@ type LayoutProps = {
 };
 
 export function Layout({ children }: LayoutProps) {
+  const { language } = useUi();
+  const footerCopy = siteCopy[language].footer;
+
   return (
-    <div className="relative min-h-screen overflow-x-hidden bg-ink text-white">
-      <div className="pointer-events-none absolute inset-0 bg-mesh opacity-90" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:120px_120px] opacity-[0.08]" />
-      <div className="pointer-events-none absolute left-[-8rem] top-20 h-72 w-72 rounded-full bg-sky-500/15 blur-3xl" />
-      <div className="pointer-events-none absolute right-[-8rem] top-48 h-80 w-80 rounded-full bg-pink-500/10 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
+    <div className="relative min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-ink dark:text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_15%_8%,rgba(59,130,246,0.12),transparent_26%),radial-gradient(circle_at_82%_12%,rgba(236,72,153,0.10),transparent_22%),radial-gradient(circle_at_52%_96%,rgba(34,197,94,0.10),transparent_28%)] opacity-100 dark:bg-mesh dark:opacity-90" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:120px_120px] opacity-[0.05] dark:opacity-[0.08]" />
+      <div className="pointer-events-none absolute left-[-8rem] top-20 h-72 w-72 rounded-full bg-sky-500/12 blur-3xl dark:bg-sky-500/15" />
+      <div className="pointer-events-none absolute right-[-8rem] top-48 h-80 w-80 rounded-full bg-pink-500/8 blur-3xl dark:bg-pink-500/10" />
+      <div className="pointer-events-none absolute bottom-[-10rem] left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-emerald-500/8 blur-3xl dark:bg-emerald-500/10" />
 
       <Navbar />
 
@@ -20,15 +25,12 @@ export function Layout({ children }: LayoutProps) {
         <div className="mx-auto max-w-8xl">{children}</div>
       </main>
 
-      <footer className="relative z-10 border-t border-white/10 px-4 py-8 sm:px-6">
-        <div className="mx-auto flex max-w-8xl flex-col gap-3 text-sm text-slate-400">
-          <p>
-            Radar Delito. Plataforma de consulta para seguimiento de homicidios,
-            delitos sexuales y hurto de vehículos en Colombia.
-          </p>
-          <p>Información consolidada para análisis territorial y temporal.</p>
-          <p className="text-slate-300">Web hecha por Juan Vizuette.</p>
-          <p>Créditos: Sebastián Rojas y Juan Lucero.</p>
+      <footer className="relative z-10 border-t border-slate-200/80 px-4 py-8 sm:px-6 dark:border-white/10">
+        <div className="mx-auto flex max-w-8xl flex-col gap-3 text-sm text-slate-500 dark:text-slate-400">
+          <p>{footerCopy.title}</p>
+          <p>{footerCopy.subtitle}</p>
+          <p className="text-slate-700 dark:text-slate-300">{footerCopy.author}</p>
+          <p>{footerCopy.credits}</p>
         </div>
       </footer>
     </div>
