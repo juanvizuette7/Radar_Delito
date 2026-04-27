@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { useLocation } from "react-router-dom";
 import { useUi } from "../context/UiContext";
 import { siteCopy } from "../data/siteCopy";
 import { Navbar } from "./Navbar";
@@ -8,8 +9,10 @@ type LayoutProps = {
 };
 
 export function Layout({ children }: LayoutProps) {
+  const location = useLocation();
   const { language } = useUi();
   const footerCopy = siteCopy[language].footer;
+  const isDashboardRoute = ["/homicidios", "/sexuales", "/hurtos"].includes(location.pathname);
 
   return (
     <div className="relative min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-ink dark:text-white">
@@ -21,18 +24,25 @@ export function Layout({ children }: LayoutProps) {
 
       <Navbar />
 
-      <main className="relative z-10 px-4 pb-12 pt-32 sm:px-6 sm:pt-36">
+      <main
+        className={[
+          "relative z-10 px-4 sm:px-6",
+          isDashboardRoute ? "pb-5 pt-28 sm:pt-32" : "pb-12 pt-32 sm:pt-36",
+        ].join(" ")}
+      >
         <div className="mx-auto max-w-8xl">{children}</div>
       </main>
 
-      <footer className="relative z-10 border-t border-slate-200/80 px-4 py-8 sm:px-6 dark:border-white/10">
-        <div className="mx-auto flex max-w-8xl flex-col gap-3 text-sm text-slate-500 dark:text-slate-400">
-          <p>{footerCopy.title}</p>
-          <p>{footerCopy.subtitle}</p>
-          <p className="text-slate-700 dark:text-slate-300">{footerCopy.author}</p>
-          <p>{footerCopy.credits}</p>
-        </div>
-      </footer>
+      {!isDashboardRoute ? (
+        <footer className="relative z-10 border-t border-slate-200/80 px-4 py-8 sm:px-6 dark:border-white/10">
+          <div className="mx-auto flex max-w-8xl flex-col gap-3 text-sm text-slate-500 dark:text-slate-400">
+            <p>{footerCopy.title}</p>
+            <p>{footerCopy.subtitle}</p>
+            <p className="text-slate-700 dark:text-slate-300">{footerCopy.author}</p>
+            <p>{footerCopy.credits}</p>
+          </div>
+        </footer>
+      ) : null}
     </div>
   );
 }
