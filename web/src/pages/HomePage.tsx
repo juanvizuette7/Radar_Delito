@@ -13,12 +13,6 @@ export function HomePage() {
   const copy = siteCopy[language].home;
   const dashboards = getDashboards(language);
   const overviewCards = getOverviewCards(language);
-  const scrollToSummary = () => {
-    document.getElementById("resumen")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  };
 
   return (
     <PageReveal>
@@ -55,14 +49,13 @@ export function HomePage() {
               {copy.primaryCta}
               <ArrowRight size={18} />
             </Link>
-            <button
-              type="button"
-              onClick={scrollToSummary}
+            <a
+              href="#resumen"
               className="inline-flex items-center justify-center gap-2 rounded-full border border-slate-200/80 bg-white/80 px-6 py-4 font-semibold text-slate-900 shadow-[0_12px_28px_rgba(148,163,184,0.12)] transition-colors duration-300 hover:bg-white dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:shadow-none dark:hover:bg-white/10"
             >
               <Play size={18} />
               {copy.secondaryCta}
-            </button>
+            </a>
           </div>
 
           <div className="grid gap-4 md:grid-cols-3">
