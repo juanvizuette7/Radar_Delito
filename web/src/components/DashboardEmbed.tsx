@@ -56,7 +56,7 @@ export function DashboardEmbed({
       transition={{ duration: 0.35 }}
       className={[
         "dashboard-fullscreen overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/85 shadow-[0_18px_48px_rgba(148,163,184,0.18)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/60 dark:shadow-glass",
-        fillViewport ? "xl:flex xl:h-[calc(100dvh-9.5rem)] xl:flex-col" : "",
+        fillViewport ? "xl:flex xl:flex-col" : "",
       ].join(" ")}
     >
       <div className="flex flex-col gap-4 border-b border-slate-200/80 px-5 py-4 dark:border-white/10 md:flex-row md:items-center md:justify-between">
@@ -95,13 +95,13 @@ export function DashboardEmbed({
         className={[
           "p-3 md:p-4",
           isFullscreen ? "h-full" : "",
-          fillViewport ? "xl:flex-1 xl:min-h-0" : "",
+          fillViewport ? "xl:flex-1" : "",
         ].join(" ")}
       >
         <div
           className={[
             "overflow-hidden rounded-[1.5rem] border border-slate-200/80 bg-slate-100/80 dark:border-white/10 dark:bg-slate-900/70",
-            fillViewport ? "xl:h-full" : "",
+            fillViewport ? "xl:h-auto" : "",
           ].join(" ")}
         >
           <iframe
@@ -111,7 +111,7 @@ export function DashboardEmbed({
               isFullscreen
                 ? "h-[calc(100dvh-8.5rem)] w-full"
                 : fillViewport
-                  ? "h-[78dvh] min-h-[680px] w-full xl:h-full xl:min-h-0"
+                  ? "h-[1400px] w-full md:h-[1500px] xl:h-[1600px]"
                   : "h-[980px] w-full"
             }
             loading="lazy"
