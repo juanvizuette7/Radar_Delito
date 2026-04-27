@@ -279,9 +279,9 @@ const localizedDashboards: LocalizedDashboard[] = [
     key: "hurtos",
     path: "/hurtos",
     embedUrl: withPageName("b6636cc114d3e4043487"),
-    navLabel: { es: "Hurto de vehiculos", en: "Vehicle theft" },
+    navLabel: { es: "Hurtos de vehiculos", en: "Vehicle theft" },
     title: {
-      es: "Sala analitica de hurto de vehiculos",
+      es: "Sala analitica de hurtos de vehiculos",
       en: "Vehicle theft analytical room",
     },
     subtitle: {
@@ -289,7 +289,7 @@ const localizedDashboards: LocalizedDashboard[] = [
       en: "Monitoring modalities, territories and operational patterns",
     },
     description: {
-      es: "Consulta el comportamiento del hurto de vehiculos por tipo, territorio, fecha, perfil de la victima y condiciones reportadas para apoyar vigilancia, control y focalizacion operativa.",
+      es: "Consulta el comportamiento de los hurtos de vehiculos por tipo, territorio, fecha, perfil de la victima y condiciones reportadas para apoyar vigilancia, control y focalizacion operativa.",
       en: "Review vehicle theft behavior by type, territory, date, victim profile and reported conditions to support surveillance, control and operational targeting.",
     },
     accentClass: "from-emerald-400 via-green-500 to-lime-500",
