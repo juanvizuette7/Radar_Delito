@@ -21,7 +21,7 @@ body,
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   scroll-padding-top: 9rem;
 }
 
@@ -29,6 +29,8 @@ body {
   margin: 0;
   min-width: 320px;
   overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
   background:
     radial-gradient(circle at 20% 10%, rgba(59, 130, 246, 0.09), transparent 24%),
     radial-gradient(circle at 85% 18%, rgba(236, 72, 153, 0.08), transparent 22%),
