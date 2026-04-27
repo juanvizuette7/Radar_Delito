@@ -54,6 +54,18 @@ html.dark body {
   color: #f8fafc;
 }
 
+@media (min-width: 1280px) {
+  html.dashboard-route,
+  body.dashboard-route {
+    height: 100%;
+    overflow: hidden;
+  }
+
+  body.dashboard-route #root {
+    height: 100%;
+  }
+}
+
 a {
   color: inherit;
   text-decoration: none;
