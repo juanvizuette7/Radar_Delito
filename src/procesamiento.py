@@ -44,4 +44,12 @@ homicidios_clean = limpiar(homicidios, "homicidio")
 hurtos_clean = limpiar(hurtos, "hurto")
 
 # GUARDAR ARCHIVOS SEPARADOS
+print("Guardando archivos limpios...")
+denuncias_clean.to_csv(clean_path + "delitos_sexuales_clean.csv", index=False)
+homicidios_clean.to_csv(clean_path + "homicidios_clean.csv", index=False)
+hurtos_clean.to_csv(clean_path + "hurtos_personas_clean.csv", index=False)
 
+print("Data procesada correctamente")
+print(f"   - delitos_sexuales_clean.csv: {len(denuncias_clean)} registros")
+print(f"   - homicides_clean.csv: {len(homicidios_clean)} registros")
+print(f"   - hurtos_personas_clean.csv: {len(hurtos_clean)} registros")
