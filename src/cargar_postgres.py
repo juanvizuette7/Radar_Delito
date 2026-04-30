@@ -159,7 +159,85 @@ DATASETS = {
         ],
         row_builder=build_homicidios_row,
     ),
-   
+    "delitos_sexuales": DatasetConfig(
+        file_name="delitos_sexuales.csv",
+        table_name="delitos_sexuales",
+        create_sql="""
+            CREATE TABLE public.delitos_sexuales (
+                departamento TEXT,
+                municipio TEXT,
+                codigo_dane TEXT,
+                armas_medios TEXT,
+                armas_medios_reportado BOOLEAN,
+                fecha_hecho TEXT,
+                fecha DATE,
+                ano INTEGER,
+                mes INTEGER,
+                periodo TEXT,
+                genero TEXT,
+                grupo_etario TEXT,
+                delito TEXT,
+                cantidad INTEGER
+            )
+        """,
+        insert_columns=[
+            "departamento",
+            "municipio",
+            "codigo_dane",
+            "armas_medios",
+            "armas_medios_reportado",
+            "fecha_hecho",
+            "fecha",
+            "ano",
+            "mes",
+            "periodo",
+            "genero",
+            "grupo_etario",
+            "delito",
+            "cantidad",
+        ],
+        row_builder=build_delitos_row,
+    ),
+    "hurtos": DatasetConfig(
+        file_name="hurtos_personas.csv",
+        table_name="hurtos",
+        create_sql="""
+            CREATE TABLE public.hurtos (
+                departamento TEXT,
+                municipio TEXT,
+                codigo_dane TEXT,
+                armas_medios TEXT,
+                armas_medios_reportado BOOLEAN,
+                fecha_hecho TEXT,
+                fecha DATE,
+                ano INTEGER,
+                mes INTEGER,
+                periodo TEXT,
+                genero TEXT,
+                grupo_etario TEXT,
+                tipo_de_hurto TEXT,
+                cantidad INTEGER
+            )
+        """,
+        insert_columns=[
+            "departamento",
+            "municipio",
+            "codigo_dane",
+            "armas_medios",
+            "armas_medios_reportado",
+            "fecha_hecho",
+            "fecha",
+            "ano",
+            "mes",
+            "periodo",
+            "genero",
+            "grupo_etario",
+            "tipo_de_hurto",
+            "cantidad",
+        ],
+        row_builder=build_hurtos_row,
+    ),
+}
 
 
 def load_env_file(path: Path) -> None:
