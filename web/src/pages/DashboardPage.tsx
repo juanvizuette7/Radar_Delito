@@ -1,10 +1,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, CircleDot } from "lucide-react";
+import { AiAnalysisPanel } from "../components/AiAnalysisPanel";
 import { DashboardEmbed } from "../components/DashboardEmbed";
 import { InsightCard } from "../components/InsightCard";
 import { KPI } from "../components/KPI";
 import { PageReveal } from "../components/PageReveal";
 import { useUi } from "../context/UiContext";
+import { getAiReport } from "../data/aiReports";
 import { DashboardConfig, getDashboardByKey } from "../data/dashboards";
 import { siteCopy } from "../data/siteCopy";
 
@@ -15,6 +17,7 @@ type DashboardPageProps = {
 export function DashboardPage({ dashboardKey }: DashboardPageProps) {
   const { language } = useUi();
   const dashboard = getDashboardByKey(language, dashboardKey);
+  const aiReport = getAiReport(language, dashboardKey);
   const copy = siteCopy[language].dashboardPage;
   const HeroIcon = dashboard.icon;
 
@@ -105,6 +108,13 @@ export function DashboardPage({ dashboardKey }: DashboardPageProps) {
             />
           ))}
         </div>
+
+        <AiAnalysisPanel
+          report={aiReport}
+          language={language}
+          accentClass={dashboard.accentClass}
+          accentTextClass={dashboard.accentTextClass}
+        />
 
         <div className="grid gap-6 xl:grid-cols-[1.4fr_0.6fr]">
           <DashboardEmbed
