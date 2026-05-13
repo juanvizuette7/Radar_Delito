@@ -1,0 +1,2 @@
+﻿dashboard,pregunta,grupo_comparado,variable_objetivo,unidad_analisis,grupos_validos,observaciones,estadistico_f,valor_p,decision,interpretacion
+Hurto de vehiculos,Hay diferencias significativas en la cantidad de hurtos de vehiculos entre departamentos?,departamento,cantidad,departamento + periodo,29,1704,25.743758,2.0181310021750327e-109,Rechazar H0,Se rechaza la hipotesis nula: los resultados sugieren diferencias significativas entre algunos grupos.

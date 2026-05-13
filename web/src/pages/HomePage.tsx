@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
-import { ArrowRight, DatabaseZap, Play, ShieldCheck, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  BarChart3,
+  DatabaseZap,
+  FlaskConical,
+  Play,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import { DashboardCard } from "../components/DashboardCard";
 import { InsightCard } from "../components/InsightCard";
@@ -13,6 +21,32 @@ export function HomePage() {
   const copy = siteCopy[language].home;
   const dashboards = getDashboards(language);
   const overviewCards = getOverviewCards(language);
+  const statisticsPromo =
+    language === "es"
+      ? {
+          eyebrow: "Validacion estadistica",
+          title: "ANOVA y Tukey por dashboard",
+          description:
+            "Ademas de los dashboards, el proyecto incluye una pagina explicativa con hipotesis, resultados e interpretacion estadistica por separado para homicidios, delitos sexuales y hurto de vehiculos.",
+          cta: "Ver estadistica",
+          points: [
+            "Explicacion sencilla del ANOVA",
+            "Resultados por dashboard",
+            "Lectura facil del p-valor y de Tukey",
+          ],
+        }
+      : {
+          eyebrow: "Statistical validation",
+          title: "ANOVA and Tukey by dashboard",
+          description:
+            "Beyond the dashboards, the project includes an explanatory page with hypotheses, results and statistical interpretation separated for homicides, sexual crimes and vehicle theft.",
+          cta: "View statistics",
+          points: [
+            "Simple explanation of ANOVA",
+            "Dashboard-level results",
+            "Easy reading of the p-value and Tukey",
+          ],
+        };
 
   return (
     <PageReveal>
@@ -188,6 +222,66 @@ export function HomePage() {
               tags={dashboard.tags}
             />
           ))}
+        </div>
+      </section>
+
+      <section className="grid gap-6 pb-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="rounded-[2rem] border border-slate-200/80 bg-white/80 p-6 shadow-[0_18px_48px_rgba(148,163,184,0.18)] backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/50 dark:shadow-glass">
+          <div className="flex items-center gap-3">
+            <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 text-white">
+              <FlaskConical size={20} />
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                {statisticsPromo.eyebrow}
+              </p>
+              <h3 className="mt-1 font-display text-2xl text-slate-950 dark:text-white">
+                {statisticsPromo.title}
+              </h3>
+            </div>
+          </div>
+
+          <p className="mt-6 max-w-3xl text-sm leading-8 text-slate-600 dark:text-slate-300">
+            {statisticsPromo.description}
+          </p>
+
+          <div className="mt-6 grid gap-3">
+            {statisticsPromo.points.map((item) => (
+              <div
+                key={item}
+                className="rounded-[1.4rem] border border-slate-200/80 bg-slate-50/90 px-4 py-3 text-sm text-slate-700 dark:border-white/10 dark:bg-slate-950/30 dark:text-slate-200"
+              >
+                {item}
+              </div>
+            ))}
+          </div>
+
+          <Link
+            to="/estadistica"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 px-6 py-3 font-semibold text-white shadow-[0_18px_40px_rgba(245,158,11,0.28)] transition-transform duration-300 hover:-translate-y-1"
+          >
+            {statisticsPromo.cta}
+            <ArrowRight size={18} />
+          </Link>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <InsightCard
+            title={language === "es" ? "Hipotesis claras" : "Clear hypotheses"}
+            description={language === "es"
+              ? "La pagina muestra que se comparo, cual era la hipotesis nula y que significa rechazarla."
+              : "The page shows what was compared, what the null hypothesis was and what rejecting it means."}
+            accentClass="from-cyan-500 to-sky-500"
+            icon={BarChart3}
+          />
+          <InsightCard
+            title={language === "es" ? "Resultados faciles de leer" : "Easy-to-read results"}
+            description={language === "es"
+              ? "Los valores F y p aparecen resumidos en tarjetas y tablas con interpretacion sencilla."
+              : "F and p values appear summarized in cards and tables with simple interpretation."}
+            accentClass="from-emerald-500 to-lime-500"
+            icon={Sparkles}
+          />
         </div>
       </section>
 

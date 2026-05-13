@@ -1,0 +1,2 @@
+﻿dashboard,pregunta,grupo_comparado,variable_objetivo,unidad_analisis,grupos_validos,observaciones,estadistico_f,valor_p,decision,interpretacion
+Homicidios,Hay diferencias significativas en la cantidad de homicidios entre departamentos?,departamento,cantidad,departamento + periodo,31,170,12.939357,2.4906801235421308e-27,Rechazar H0,Se rechaza la hipotesis nula: los resultados sugieren diferencias significativas entre algunos grupos.

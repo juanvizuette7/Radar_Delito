@@ -1,0 +1,4 @@
+﻿group1,group2,meandiff,p-adj,lower,upper,reject,dashboard,grupo_comparado,interpretacion
+ADOLESCENTES,ADULTOS,13.4907,0.0,10.0228,16.9586,True,Delitos sexuales,grupo_etario,La comparacion sugiere una diferencia significativa entre estos grupos.
+ADOLESCENTES,MENORES,-0.4059,0.9591,-3.8834,3.0715,False,Delitos sexuales,grupo_etario,No se detecta una diferencia significativa entre estos grupos.
+ADULTOS,MENORES,-13.8966,0.0,-17.3346,-10.4587,True,Delitos sexuales,grupo_etario,La comparacion sugiere una diferencia significativa entre estos grupos.

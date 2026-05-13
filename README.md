@@ -85,6 +85,38 @@ Visualizacion:
 - Framer Motion
 - React Router
 
+## Validacion estadistica ANOVA y Tukey
+
+Como complemento a los dashboards interactivos, el proyecto incorpora una capa de validacion estadistica basada en ANOVA y prueba post hoc de Tukey.
+
+La validacion formal no compara directamente homicidios, delitos sexuales y hurto de vehiculos como si fueran un solo dataset homogeneo. Esa lectura general se deja como analisis descriptivo en los dashboards.
+
+La parte inferencial se ejecuta por separado para cada dashboard:
+
+- `homicidios`: comparacion por `departamento`
+- `delitos sexuales`: comparacion por `grupo_etario`
+- `hurto de vehiculos`: comparacion por `departamento`
+
+Archivos principales:
+
+- `src/estadistica/anova_delitos.py`
+- `src/estadistica/resultados/anova_homicidios_departamento.csv`
+- `src/estadistica/resultados/tukey_homicidios_departamento.csv`
+- `src/estadistica/resultados/anova_sexuales_grupo_etario.csv`
+- `src/estadistica/resultados/tukey_sexuales_grupo_etario.csv`
+- `src/estadistica/resultados/anova_hurtos_departamento.csv`
+- `src/estadistica/resultados/tukey_hurtos_departamento.csv`
+- `src/estadistica/resultados/resumen_descriptivo.csv`
+- `src/estadistica/resultados/interpretacion_estadistica_final.txt`
+
+La web incluye una vista en `/estadistica` para presentar esta validacion con explicaciones sencillas, resultados resumidos e interpretacion para exposicion.
+
+Ejecucion:
+
+```bash
+python src/estadistica/anova_delitos.py
+```
+
 ## Requisitos
 
 Para ejecutar todo el proyecto en local necesitas:

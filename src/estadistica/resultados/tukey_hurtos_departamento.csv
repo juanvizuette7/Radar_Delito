@@ -1,0 +1,407 @@
+﻿group1,group2,meandiff,p-adj,lower,upper,reject,dashboard,grupo_comparado,interpretacion
+AMAZONAS,ANTIOQUIA,3.184,0.001,0.6512,5.7168,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+AMAZONAS,ARAUCA,0.125,1.0,-3.041,3.291,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,ATLANTICO,0.8942,1.0,-1.6484,3.4368,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,BOGOTA,2.7411,0.0171,0.2026,5.2795,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+AMAZONAS,BOLIVAR,0.6543,1.0,-1.9048,3.2134,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,BOYACA,0.2,1.0,-2.8418,3.2418,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CALDAS,0.0,1.0,-2.8933,2.8933,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CAQUETA,0.1765,1.0,-2.4835,2.8364,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CASANARE,0.0976,1.0,-2.5331,2.7283,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CAUCA,1.5546,0.8873,-0.9806,4.0899,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CESAR,0.716,1.0,-1.8431,3.2752,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CHOCO,0.3,1.0,-2.3048,2.9048,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CORDOBA,0.2222,1.0,-2.4283,2.8727,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CUNDINAMARCA,0.4407,1.0,-2.146,3.0274,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,GUAJIRA,0.4918,1.0,-2.0916,3.0752,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,HUILA,2.2451,0.1861,-0.2987,4.7889,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,MAGDALENA,0.3654,1.0,-2.2349,2.9657,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,META,1.0227,0.9997,-1.5305,3.5759,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,NARINO,1.0326,0.9997,-1.5176,3.5828,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,NORTE DE SANTANDER,0.6711,1.0,-1.893,3.2351,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,PUTUMAYO,0.0,1.0,-2.8678,2.8678,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,QUINDIO,0.2857,1.0,-2.4778,3.0492,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,RISARALDA,0.2,1.0,-2.5768,2.9768,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,SAN ANDRES,0.0,1.0,-3.0976,3.0976,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,SANTANDER,0.7632,1.0,-1.8009,3.3272,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,SUCRE,0.3864,1.0,-2.2346,3.0073,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,TOLIMA,0.3,1.0,-2.3048,2.9048,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,VALLE,2.3697,0.1083,-0.1655,4.905,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ANTIOQUIA,ARAUCA,-3.059,0.0,-5.0843,-1.0337,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,ATLANTICO,-2.2898,0.0,-3.0269,-1.5527,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,BOGOTA,-0.4429,0.8877,-1.1655,0.2796,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ANTIOQUIA,BOLIVAR,-2.5297,0.0,-3.3218,-1.7375,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,BOYACA,-2.984,0.0,-4.8091,-1.1589,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CALDAS,-3.184,0.0,-4.7492,-1.6188,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CAQUETA,-3.0075,0.0,-4.0817,-1.9334,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CASANARE,-3.0864,0.0,-4.0859,-2.087,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CAUCA,-1.6294,0.0,-2.3407,-0.9181,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CESAR,-2.468,0.0,-3.2601,-1.6758,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CHOCO,-2.884,0.0,-3.8133,-1.9547,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CORDOBA,-2.9618,0.0,-4.0122,-1.9113,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CUNDINAMARCA,-2.7433,0.0,-3.6205,-1.8661,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,GUAJIRA,-2.6922,0.0,-3.5596,-1.8248,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,HUILA,-0.9389,0.0009,-1.6799,-0.1979,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,MAGDALENA,-2.8186,0.0,-3.735,-1.9022,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,META,-2.1613,0.0,-2.9341,-1.3885,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,NARINO,-2.1514,0.0,-2.9143,-1.3885,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,NORTE DE SANTANDER,-2.5129,0.0,-3.3208,-1.7051,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,PUTUMAYO,-3.184,0.0,-4.7015,-1.6665,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,QUINDIO,-2.8983,0.0,-4.208,-1.5886,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,RISARALDA,-2.984,0.0,-4.3215,-1.6465,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,SAN ANDRES,-3.184,0.0,-5.1007,-1.2673,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,SANTANDER,-2.4208,0.0,-3.2286,-1.613,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,SUCRE,-2.7976,0.0,-3.7711,-1.8241,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,TOLIMA,-2.884,0.0,-3.8133,-1.9547,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,VALLE,-0.8143,0.0065,-1.5255,-0.103,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ARAUCA,ATLANTICO,0.7692,0.9999,-1.2684,2.8068,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,BOGOTA,2.6161,0.0006,0.5837,4.6485,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ARAUCA,BOLIVAR,0.5293,1.0,-1.5288,2.5875,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,BOYACA,0.075,1.0,-2.5593,2.7093,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CALDAS,-0.125,1.0,-2.5863,2.3363,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CAQUETA,0.0515,1.0,-2.1308,2.2337,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CASANARE,-0.0274,1.0,-2.1739,2.1191,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CAUCA,1.4296,0.6641,-0.5988,3.458,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CESAR,0.591,1.0,-1.4671,2.6492,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CHOCO,0.175,1.0,-1.9397,2.2897,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CORDOBA,0.0972,1.0,-2.0735,2.2679,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CUNDINAMARCA,0.3157,1.0,-1.7767,2.408,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,GUAJIRA,0.3668,1.0,-1.7215,2.4551,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,HUILA,2.1201,0.0298,0.0811,4.1591,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ARAUCA,MAGDALENA,0.2404,1.0,-1.8687,2.3495,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,META,0.8977,0.9987,-1.1531,2.9485,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,NARINO,0.9076,0.9984,-1.1395,2.9547,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,NORTE DE SANTANDER,0.5461,1.0,-1.5182,2.6103,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,PUTUMAYO,-0.125,1.0,-2.5563,2.3063,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,QUINDIO,0.1607,1.0,-2.1466,2.4681,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,RISARALDA,0.075,1.0,-2.2482,2.3982,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,SAN ANDRES,-0.125,1.0,-2.8235,2.5735,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,SANTANDER,0.6382,1.0,-1.4261,2.7024,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,SUCRE,0.2614,1.0,-1.8732,2.3959,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,TOLIMA,0.175,1.0,-1.9397,2.2897,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,VALLE,2.2447,0.0116,0.2164,4.2731,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ATLANTICO,BOGOTA,1.8468,0.0,1.0906,2.6031,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ATLANTICO,BOLIVAR,-0.2399,1.0,-1.0629,0.5831,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,BOYACA,-0.6942,0.9999,-2.5329,1.1444,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CALDAS,-0.8942,0.9514,-2.4752,0.6868,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CAQUETA,-0.7178,0.8019,-1.8149,0.3794,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CASANARE,-0.7967,0.4413,-1.8208,0.2274,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CAUCA,0.6604,0.1803,-0.0851,1.4059,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CESAR,-0.1782,1.0,-1.0012,0.6448,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CHOCO,-0.5942,0.8717,-1.5499,0.3615,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CORDOBA,-0.672,0.8641,-1.7459,0.4019,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CUNDINAMARCA,-0.4536,0.9896,-1.3587,0.4516,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,GUAJIRA,-0.4024,0.998,-1.2981,0.4932,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,HUILA,1.3509,0.0,0.577,2.1248,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ATLANTICO,MAGDALENA,-0.5288,0.9561,-1.4721,0.4144,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,META,0.1285,1.0,-0.6759,0.9329,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,NARINO,0.1384,1.0,-0.6565,0.9332,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,NORTE DE SANTANDER,-0.2232,1.0,-1.0613,0.6149,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,PUTUMAYO,-0.8942,0.9322,-2.4281,0.6396,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,QUINDIO,-0.6085,0.9973,-1.9371,0.7201,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,RISARALDA,-0.6942,0.986,-2.0502,0.6617,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,SAN ANDRES,-0.8942,0.9967,-2.8238,1.0354,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,SANTANDER,-0.1311,1.0,-0.9691,0.707,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,SUCRE,-0.5079,0.9872,-1.5066,0.4909,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,TOLIMA,-0.5942,0.8717,-1.5499,0.3615,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,VALLE,1.4755,0.0,0.73,2.221,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,BOLIVAR,-2.0868,0.0,-2.8968,-1.2767,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,BOYACA,-2.5411,0.0001,-4.374,-0.7082,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,CALDAS,-2.7411,0.0,-4.3154,-1.1668,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,CAQUETA,-2.5646,0.0,-3.652,-1.4772,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,CASANARE,-2.6435,0.0,-3.6572,-1.6298,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,CAUCA,-1.1864,0.0,-1.9176,-0.4553,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,CESAR,-2.025,0.0,-2.835,-1.215,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,CHOCO,-2.4411,0.0,-3.3856,-1.4965,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,CORDOBA,-2.5188,0.0,-3.5828,-1.4549,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,CUNDINAMARCA,-2.3004,0.0,-3.1938,-1.407,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,GUAJIRA,-2.2493,0.0,-3.133,-1.3655,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,HUILA,-0.496,0.806,-1.2561,0.2641,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA,MAGDALENA,-2.3757,0.0,-3.3076,-1.4438,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,META,-1.7183,0.0,-2.5094,-0.9272,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,NARINO,-1.7085,0.0,-2.4899,-0.927,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,NORTE DE SANTANDER,-2.07,0.0,-2.8954,-1.2447,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,PUTUMAYO,-2.7411,0.0,-4.268,-1.2141,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,QUINDIO,-2.4554,0.0,-3.776,-1.1347,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,RISARALDA,-2.5411,0.0,-3.8892,-1.1929,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,SAN ANDRES,-2.7411,0.0,-4.6652,-0.817,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,SANTANDER,-1.9779,0.0,-2.8033,-1.1526,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,SUCRE,-2.3547,0.0,-3.3428,-1.3666,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,TOLIMA,-2.4411,0.0,-3.3856,-1.4965,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA,VALLE,-0.3713,0.9874,-1.1025,0.3598,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,BOYACA,-0.4543,1.0,-2.3158,1.4071,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CALDAS,-0.6543,0.9996,-2.2617,0.9531,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CAQUETA,-0.4779,0.9993,-1.6127,0.657,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CASANARE,-0.5568,0.9813,-1.6212,0.5077,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CAUCA,0.9003,0.0088,0.1003,1.7003,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOLIVAR,CESAR,0.0617,1.0,-0.8109,0.9344,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CHOCO,-0.3543,1.0,-1.3531,0.6445,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CORDOBA,-0.4321,0.9998,-1.5445,0.6803,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CUNDINAMARCA,-0.2136,1.0,-1.1642,0.7369,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,GUAJIRA,-0.1625,1.0,-1.104,0.779,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,HUILA,1.5908,0.0,0.7643,2.4173,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOLIVAR,MAGDALENA,-0.2889,1.0,-1.2758,0.6979,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,META,0.3684,0.999,-0.4867,1.2235,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,NARINO,0.3783,0.9982,-0.4679,1.2245,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,NORTE DE SANTANDER,0.0167,1.0,-0.8702,0.9036,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,PUTUMAYO,-0.6543,0.9994,-2.2154,0.9067,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,QUINDIO,-0.3686,1.0,-1.7285,0.9913,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,RISARALDA,-0.4543,1.0,-1.841,0.9323,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,SAN ANDRES,-0.6543,1.0,-2.6056,1.297,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,SANTANDER,0.1088,1.0,-0.7781,0.9957,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,SUCRE,-0.268,1.0,-1.308,0.7721,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,TOLIMA,-0.3543,1.0,-1.3531,0.6445,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,VALLE,1.7154,0.0,0.9155,2.5154,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOYACA,CALDAS,-0.2,1.0,-2.4994,2.0994,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CAQUETA,-0.0235,1.0,-2.0213,1.9743,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CASANARE,-0.1024,1.0,-2.0611,1.8562,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CAUCA,1.3546,0.5542,-0.4739,3.1831,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CESAR,0.516,1.0,-1.3454,2.3775,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CHOCO,0.1,1.0,-1.8238,2.0238,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CORDOBA,0.0222,1.0,-1.9629,2.0074,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CUNDINAMARCA,0.2407,1.0,-1.6585,2.1399,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,GUAJIRA,0.2918,1.0,-1.6029,2.1865,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,HUILA,2.0451,0.0108,0.2048,3.8854,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOYACA,MAGDALENA,0.1654,1.0,-1.7522,2.083,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,META,0.8227,0.9984,-1.0306,2.676,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,NARINO,0.8326,0.9979,-1.0166,2.6818,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,NORTE DE SANTANDER,0.4711,1.0,-1.3971,2.3392,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,PUTUMAYO,-0.2,1.0,-2.4672,2.0672,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,QUINDIO,0.0857,1.0,-2.048,2.2195,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,RISARALDA,0.0,1.0,-2.1509,2.1509,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,SAN ANDRES,-0.2,1.0,-2.7517,2.3517,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,SANTANDER,0.5632,1.0,-1.305,2.4313,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,SUCRE,0.1864,1.0,-1.7592,2.1319,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,TOLIMA,0.1,1.0,-1.8238,2.0238,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,VALLE,2.1697,0.0033,0.3413,3.9982,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CALDAS,CAQUETA,0.1765,1.0,-1.5871,1.94,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CASANARE,0.0976,1.0,-1.6215,1.8166,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CAUCA,1.5546,0.0561,-0.0145,3.1237,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CESAR,0.716,0.9983,-0.8914,2.3235,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CHOCO,0.3,1.0,-1.3792,1.9792,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CORDOBA,0.2222,1.0,-1.527,1.9714,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CUNDINAMARCA,0.4407,1.0,-1.2103,2.0917,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,GUAJIRA,0.4918,1.0,-1.154,2.1376,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,HUILA,2.2451,0.0001,0.6623,3.8279,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CALDAS,MAGDALENA,0.3654,1.0,-1.3068,2.0375,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,META,1.0227,0.8345,-0.5752,2.6207,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,NARINO,1.0326,0.8162,-0.5606,2.6258,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,NORTE DE SANTANDER,0.6711,0.9995,-0.9441,2.2862,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,PUTUMAYO,0.0,1.0,-2.0638,2.0638,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,QUINDIO,0.2857,1.0,-1.6304,2.2019,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,RISARALDA,0.2,1.0,-1.7352,2.1352,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,SAN ANDRES,0.0,1.0,-2.3727,2.3727,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,SANTANDER,0.7632,0.9956,-0.852,2.3783,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,SUCRE,0.3864,1.0,-1.3177,2.0905,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,TOLIMA,0.3,1.0,-1.3792,1.9792,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,VALLE,2.3697,0.0,0.8006,3.9389,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAQUETA,CASANARE,-0.0789,1.0,-1.3671,1.2092,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CAUCA,1.3782,0.0007,0.2982,2.4581,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAQUETA,CESAR,0.5396,0.9952,-0.5953,1.6744,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CHOCO,0.1235,1.0,-1.111,1.358,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CORDOBA,0.0458,1.0,-1.2823,1.3738,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CUNDINAMARCA,0.2642,1.0,-0.9316,1.46,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,GUAJIRA,0.3153,1.0,-0.8732,1.5039,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,HUILA,2.0686,0.0,0.9689,3.1684,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAQUETA,MAGDALENA,0.1889,1.0,-1.0359,1.4137,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,META,0.8463,0.5117,-0.2752,1.9677,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,NARINO,0.8561,0.4706,-0.2585,1.9707,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,NORTE DE SANTANDER,0.4946,0.999,-0.6512,1.6404,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,PUTUMAYO,-0.1765,1.0,-1.8979,1.5449,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,QUINDIO,0.1092,1.0,-1.4321,1.6506,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,RISARALDA,0.0235,1.0,-1.5415,1.5885,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,SAN ANDRES,-0.1765,1.0,-2.2583,1.9053,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,SANTANDER,0.5867,0.986,-0.5591,1.7325,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,SUCRE,0.2099,1.0,-1.0582,1.478,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,TOLIMA,0.1235,1.0,-1.111,1.358,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,VALLE,2.1933,0.0,1.1133,3.2732,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CASANARE,CAUCA,1.4571,0.0,0.4514,2.4628,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CASANARE,CESAR,0.6185,0.9346,-0.4459,1.6829,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,CHOCO,0.2024,1.0,-0.9676,1.3725,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,CORDOBA,0.1247,1.0,-1.1438,1.3931,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,CUNDINAMARCA,0.3431,1.0,-0.786,1.4723,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,GUAJIRA,0.3942,1.0,-0.7273,1.5158,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,HUILA,2.1475,0.0,1.1206,3.1745,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CASANARE,MAGDALENA,0.2678,1.0,-0.8921,1.4277,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,META,0.9252,0.189,-0.1249,1.9753,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,NARINO,0.935,0.1619,-0.1078,1.9779,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,NORTE DE SANTANDER,0.5735,0.9763,-0.5026,1.6496,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,PUTUMAYO,-0.0976,1.0,-1.7734,1.5783,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,QUINDIO,0.1882,1.0,-1.3021,1.6784,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,RISARALDA,0.1024,1.0,-1.4123,1.6171,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,SAN ANDRES,-0.0976,1.0,-2.1418,1.9467,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,SANTANDER,0.6656,0.8778,-0.4105,1.7417,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,SUCRE,0.2888,1.0,-0.9167,1.4943,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,TOLIMA,0.2024,1.0,-0.9676,1.3725,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,VALLE,2.2722,0.0,1.2665,3.2779,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,CESAR,-0.8386,0.0266,-1.6385,-0.0386,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,CHOCO,-1.2546,0.0002,-2.1906,-0.3187,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,CORDOBA,-1.3324,0.001,-2.3888,-0.276,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,CUNDINAMARCA,-1.1139,0.001,-1.9982,-0.2297,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,GUAJIRA,-1.0628,0.0021,-1.9373,-0.1883,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,HUILA,0.6905,0.1251,-0.0589,1.4398,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,MAGDALENA,-1.1892,0.0006,-2.1124,-0.266,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,META,-0.5319,0.7319,-1.3127,0.2489,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,NARINO,-0.522,0.7432,-1.293,0.249,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,NORTE DE SANTANDER,-0.8836,0.0162,-1.699,-0.0681,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,PUTUMAYO,-1.5546,0.0379,-3.0762,-0.033,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,QUINDIO,-1.2689,0.0763,-2.5834,0.0456,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,RISARALDA,-1.3546,0.0444,-2.6967,-0.0125,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,SAN ANDRES,-1.5546,0.351,-3.4745,0.3653,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,SANTANDER,-0.7915,0.0717,-1.6069,0.024,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,SUCRE,-1.1683,0.0031,-2.1481,-0.1884,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,TOLIMA,-1.2546,0.0002,-2.1906,-0.3187,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,VALLE,0.8151,0.0079,0.0952,1.5351,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CESAR,CHOCO,-0.416,0.9994,-1.4148,0.5827,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,CORDOBA,-0.4938,0.9984,-1.6062,0.6186,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,CUNDINAMARCA,-0.2754,1.0,-1.2259,0.6752,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,GUAJIRA,-0.2242,1.0,-1.1657,0.7172,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,HUILA,1.529,0.0,0.7025,2.3556,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CESAR,MAGDALENA,-0.3507,1.0,-1.3375,0.6362,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,META,0.3067,1.0,-0.5484,1.1618,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,NARINO,0.3166,0.9999,-0.5296,1.1627,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,NORTE DE SANTANDER,-0.045,1.0,-0.9319,0.8419,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,PUTUMAYO,-0.716,0.9972,-2.2771,0.845,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,QUINDIO,-0.4303,1.0,-1.7903,0.9296,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,RISARALDA,-0.516,0.9999,-1.9027,0.8706,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,SAN ANDRES,-0.716,0.9999,-2.6674,1.2353,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,SANTANDER,0.0471,1.0,-0.8398,0.934,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,SUCRE,-0.3297,1.0,-1.3697,0.7104,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,TOLIMA,-0.416,0.9994,-1.4148,0.5827,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,VALLE,1.6537,0.0,0.8537,2.4537,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CHOCO,CORDOBA,-0.0778,1.0,-1.2917,1.1361,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,CUNDINAMARCA,0.1407,1.0,-0.9268,1.2082,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,GUAJIRA,0.1918,1.0,-0.8676,1.2513,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,HUILA,1.9451,0.0,0.9863,2.9039,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CHOCO,MAGDALENA,0.0654,1.0,-1.0346,1.1654,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,META,0.7227,0.5727,-0.2608,1.7062,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,NARINO,0.7326,0.5234,-0.2431,1.7084,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,NORTE DE SANTANDER,0.3711,0.9999,-0.6402,1.3823,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,PUTUMAYO,-0.3,1.0,-1.9349,1.3349,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,QUINDIO,-0.0143,1.0,-1.4584,1.4298,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,RISARALDA,-0.1,1.0,-1.5693,1.3693,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,SAN ANDRES,-0.3,1.0,-2.3109,1.7109,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,SANTANDER,0.4632,0.9973,-0.5481,1.4744,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,SUCRE,0.0864,1.0,-1.0616,1.2343,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,TOLIMA,0.0,1.0,-1.1107,1.1107,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,VALLE,2.0697,0.0,1.1338,3.0057,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CORDOBA,CUNDINAMARCA,0.2185,1.0,-0.956,1.393,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,GUAJIRA,0.2696,1.0,-0.8976,1.4368,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,HUILA,2.0229,0.0,0.9463,3.0995,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CORDOBA,MAGDALENA,0.1432,1.0,-1.0609,1.3472,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,META,0.8005,0.592,-0.2982,1.8992,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,NARINO,0.8104,0.5498,-0.2814,1.9022,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,NORTE DE SANTANDER,0.4488,0.9997,-0.6748,1.5725,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,PUTUMAYO,-0.2222,1.0,-1.9289,1.4845,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,QUINDIO,0.0635,1.0,-1.4614,1.5884,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,RISARALDA,-0.0222,1.0,-1.571,1.5266,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,SAN ANDRES,-0.2222,1.0,-2.2919,1.8475,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,SANTANDER,0.5409,0.9942,-0.5827,1.6646,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,SUCRE,0.1641,1.0,-1.0839,1.4122,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,TOLIMA,0.0778,1.0,-1.1361,1.2917,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,VALLE,2.1475,0.0,1.0912,3.2039,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CUNDINAMARCA,GUAJIRA,0.0511,1.0,-0.9629,1.0652,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,HUILA,1.8044,0.0,0.8961,2.7128,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CUNDINAMARCA,MAGDALENA,-0.0753,1.0,-1.1316,0.981,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,META,0.582,0.8697,-0.3524,1.5165,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,NARINO,0.5919,0.8366,-0.3343,1.5182,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,NORTE DE SANTANDER,0.2304,1.0,-0.7332,1.194,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,PUTUMAYO,-0.4407,1.0,-2.0466,1.1652,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,QUINDIO,-0.155,1.0,-1.5661,1.2562,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,RISARALDA,-0.2407,1.0,-1.6776,1.1963,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,SAN ANDRES,-0.4407,1.0,-2.428,1.5467,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,SANTANDER,0.3225,1.0,-0.6411,1.2861,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,SUCRE,-0.0543,1.0,-1.1605,1.0519,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,TOLIMA,-0.1407,1.0,-1.2082,0.9268,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,VALLE,1.9291,0.0,1.0448,2.8133,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+GUAJIRA,HUILA,1.7533,0.0,0.8544,2.6522,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+GUAJIRA,MAGDALENA,-0.1264,1.0,-1.1746,0.9218,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,META,0.5309,0.9429,-0.3943,1.4562,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,NARINO,0.5408,0.9234,-0.3762,1.4578,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,NORTE DE SANTANDER,0.1792,1.0,-0.7754,1.1339,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,PUTUMAYO,-0.4918,1.0,-2.0923,1.1087,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,QUINDIO,-0.2061,1.0,-1.6112,1.199,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,RISARALDA,-0.2918,1.0,-1.7228,1.1392,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,SAN ANDRES,-0.4918,1.0,-2.4748,1.4912,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,SANTANDER,0.2714,1.0,-0.6833,1.226,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,SUCRE,-0.1054,1.0,-1.2039,0.993,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,TOLIMA,-0.1918,1.0,-1.2513,0.8676,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAJIRA,VALLE,1.8779,0.0,1.0034,2.7525,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,MAGDALENA,-1.8797,0.0,-2.826,-0.9334,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,META,-1.2224,0.0,-2.0304,-0.4144,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,NARINO,-1.2125,0.0,-2.011,-0.414,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,NORTE DE SANTANDER,-1.574,0.0,-2.4156,-0.7325,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,PUTUMAYO,-2.2451,0.0,-3.7808,-0.7094,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,QUINDIO,-1.9594,0.0,-3.2902,-0.6286,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,RISARALDA,-2.0451,0.0,-3.4032,-0.687,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,SAN ANDRES,-2.2451,0.0049,-4.1762,-0.314,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,SANTANDER,-1.4819,0.0,-2.3235,-0.6404,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,SUCRE,-1.8587,0.0,-2.8604,-0.8571,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,TOLIMA,-1.9451,0.0,-2.9039,-0.9863,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,VALLE,0.1246,1.0,-0.6247,0.874,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,META,0.6573,0.7442,-0.314,1.6287,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,NARINO,0.6672,0.7001,-0.2963,1.6307,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,NORTE DE SANTANDER,0.3057,1.0,-0.6938,1.3051,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,PUTUMAYO,-0.3654,1.0,-1.993,1.2623,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,QUINDIO,-0.0797,1.0,-1.5156,1.3562,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,RISARALDA,-0.1654,1.0,-1.6266,1.2958,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,SAN ANDRES,-0.3654,1.0,-2.3704,1.6396,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,SANTANDER,0.3978,0.9998,-0.6017,1.3972,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,SUCRE,0.021,1.0,-1.1166,1.1585,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,TOLIMA,-0.0654,1.0,-1.1654,1.0346,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,VALLE,2.0044,0.0,1.0812,2.9276,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+META,NARINO,0.0099,1.0,-0.8182,0.838,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,NORTE DE SANTANDER,-0.3517,0.9997,-1.2213,0.518,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,PUTUMAYO,-1.0227,0.7895,-2.574,0.5286,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,QUINDIO,-0.737,0.9676,-2.0858,0.6117,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,RISARALDA,-0.8227,0.9117,-2.1984,0.553,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,SAN ANDRES,-1.0227,0.9798,-2.9663,0.9208,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,SANTANDER,-0.2596,1.0,-1.1292,0.6101,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,SUCRE,-0.6364,0.8739,-1.6618,0.389,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,TOLIMA,-0.7227,0.5727,-1.7062,0.2608,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,VALLE,1.347,0.0,0.5662,2.1278,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+NARINO,NORTE DE SANTANDER,-0.3616,0.9994,-1.2224,0.4993,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,PUTUMAYO,-1.0326,0.768,-2.579,0.5138,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,QUINDIO,-0.7469,0.9601,-2.09,0.5962,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,RISARALDA,-0.8326,0.8966,-2.2028,0.5375,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,SAN ANDRES,-1.0326,0.9766,-2.9722,0.907,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,SANTANDER,-0.2695,1.0,-1.1303,0.5914,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,SUCRE,-0.6462,0.8456,-1.6642,0.3717,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,TOLIMA,-0.7326,0.5234,-1.7084,0.2431,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,VALLE,1.3371,0.0,0.5662,2.1081,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,PUTUMAYO,-0.6711,0.9991,-2.2401,0.898,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,QUINDIO,-0.3853,1.0,-1.7545,0.9838,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,RISARALDA,-0.4711,1.0,-1.8667,0.9246,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,SAN ANDRES,-0.6711,1.0,-2.6288,1.2867,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,SANTANDER,0.0921,1.0,-0.8088,0.993,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,SUCRE,-0.2847,1.0,-1.3367,0.7673,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,TOLIMA,-0.3711,0.9999,-1.3823,0.6402,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,VALLE,1.6987,0.0,0.8832,2.5142,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+PUTUMAYO,QUINDIO,0.2857,1.0,-1.5917,2.1632,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,RISARALDA,0.2,1.0,-1.6969,2.0969,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,SAN ANDRES,0.0,1.0,-2.3416,2.3416,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,SANTANDER,0.7632,0.9932,-0.8059,2.3322,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,SUCRE,0.3864,1.0,-1.2741,2.0468,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,TOLIMA,0.3,1.0,-1.3349,1.9349,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,VALLE,2.3697,0.0,0.8481,3.8914,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+QUINDIO,RISARALDA,-0.0857,1.0,-1.8209,1.6494,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,SAN ANDRES,-0.2857,1.0,-2.4983,1.9269,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,SANTANDER,0.4774,1.0,-0.8917,1.8466,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,SUCRE,0.1006,1.0,-1.3723,1.5736,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,TOLIMA,0.0143,1.0,-1.4298,1.4584,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,VALLE,2.084,0.0,0.7696,3.3985,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+RISARALDA,SAN ANDRES,-0.2,1.0,-2.4291,2.0291,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,SANTANDER,0.5632,0.9997,-0.8325,1.9588,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,SUCRE,0.1864,1.0,-1.3113,1.684,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,TOLIMA,0.1,1.0,-1.3693,1.5693,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,VALLE,2.1697,0.0,0.8276,3.5119,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+SAN ANDRES,SANTANDER,0.7632,0.9998,-1.1946,2.7209,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+SAN ANDRES,SUCRE,0.3864,1.0,-1.6453,2.4181,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+SAN ANDRES,TOLIMA,0.3,1.0,-1.7109,2.3109,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+SAN ANDRES,VALLE,2.3697,0.0015,0.4498,4.2897,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+SANTANDER,SUCRE,-0.3768,1.0,-1.4288,0.6752,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+SANTANDER,TOLIMA,-0.4632,0.9973,-1.4744,0.5481,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+SANTANDER,VALLE,1.6066,0.0,0.7911,2.4221,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+SUCRE,TOLIMA,-0.0864,1.0,-1.2343,1.0616,False,Hurto de vehiculos,departamento,No se detecta una diferencia significativa entre estos grupos.
+SUCRE,VALLE,1.9834,0.0,1.0035,2.9632,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+TOLIMA,VALLE,2.0697,0.0,1.1338,3.0057,True,Hurto de vehiculos,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.

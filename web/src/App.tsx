@@ -5,6 +5,7 @@ import { UiProvider } from "./context/UiContext";
 import { DashboardPage } from "./pages/DashboardPage";
 import { HomePage } from "./pages/HomePage";
 import { NotFoundPage } from "./pages/NotFoundPage";
+import { StatisticsPage } from "./pages/StatisticsPage";
 
 function App() {
   const location = useLocation();
@@ -27,6 +28,7 @@ function App() {
               path="/hurtos"
               element={<DashboardPage dashboardKey="hurtos" />}
             />
+            <Route path="/estadistica" element={<StatisticsPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AnimatePresence>

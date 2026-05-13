@@ -3,6 +3,7 @@ import { Language } from "../context/UiContext";
 type SiteCopy = {
   nav: {
     home: string;
+    statistics: string;
     badge: string;
     themeLabel: string;
     light: string;
@@ -66,6 +67,7 @@ export const siteCopy: Record<Language, SiteCopy> = {
   es: {
     nav: {
       home: "Inicio",
+      statistics: "Estadistica",
       badge: "Seguimiento nacional",
       themeLabel: "Tema",
       light: "Blanco",
@@ -173,6 +175,7 @@ export const siteCopy: Record<Language, SiteCopy> = {
   en: {
     nav: {
       home: "Home",
+      statistics: "Statistics",
       badge: "National monitoring",
       themeLabel: "Theme",
       light: "Light",

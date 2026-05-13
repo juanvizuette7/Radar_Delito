@@ -1,0 +1,466 @@
+﻿group1,group2,meandiff,p-adj,lower,upper,reject,dashboard,grupo_comparado,interpretacion
+AMAZONAS,ANTIOQUIA,205.9167,0.0,132.4104,279.423,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+AMAZONAS,ARAUCA,27.4167,0.9999,-46.0896,100.923,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,ATLANTICO,37.0833,0.9849,-36.423,110.5896,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,BOGOTA D.C.,61.0833,0.2803,-12.423,134.5896,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,BOLIVAR,40.9167,0.9498,-32.5896,114.423,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,BOYACA,17.4167,1.0,-56.0896,90.923,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CALDAS,51.4167,0.6511,-22.0896,124.923,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CAQUETA,24.45,1.0,-51.94,100.84,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CASANARE,13.25,1.0,-60.2563,86.7563,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CAUCA,21.4167,1.0,-52.0896,94.923,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CESAR,47.85,0.8413,-28.54,124.24,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CHOCO,5.75,1.0,-67.7563,79.2563,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CORDOBA,16.4167,1.0,-57.0896,89.923,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,CUNDINAMARCA,69.05,0.1441,-7.34,145.44,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,GUAVIARE,3.85,1.0,-72.54,80.24,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,HUILA,32.9167,0.9974,-40.5896,106.423,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,LA GUAJIRA,20.4167,1.0,-53.0896,93.923,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,MAGDALENA,40.75,0.952,-32.7563,114.2563,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,META,37.25,0.984,-36.2563,110.7563,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,NARINO,29.9167,0.9995,-43.5896,103.423,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,NORTE DE SANTANDER,69.9167,0.0877,-3.5896,143.423,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,PUTUMAYO,22.65,1.0,-53.74,99.04,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,QUINDIO,22.05,1.0,-54.34,98.44,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,RISARALDA,51.0833,0.6644,-22.423,124.5896,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,SAN ANDRES ISLAS,-0.4167,1.0,-87.3905,86.5572,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,SANTANDER,39.75,0.9639,-33.7563,113.2563,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,SUCRE,16.05,1.0,-60.34,92.44,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,TOLIMA,35.9167,0.9903,-37.5896,109.423,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+AMAZONAS,VALLE DEL CAUCA,175.0833,0.0,101.577,248.5896,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+AMAZONAS,VICHADA,-0.75,1.0,-99.3691,97.8691,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ANTIOQUIA,ARAUCA,-178.5,0.0,-244.246,-112.754,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,ATLANTICO,-168.8333,0.0,-234.5794,-103.0873,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,BOGOTA D.C.,-144.8333,0.0,-210.5794,-79.0873,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,BOLIVAR,-165.0,0.0,-230.746,-99.254,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,BOYACA,-188.5,0.0,-254.246,-122.754,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CALDAS,-154.5,0.0,-220.246,-88.754,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CAQUETA,-181.4667,0.0,-250.4217,-112.5116,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CASANARE,-192.6667,0.0,-258.4127,-126.9206,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CAUCA,-184.5,0.0,-250.246,-118.754,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CESAR,-158.0667,0.0,-227.0217,-89.1116,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CHOCO,-200.1667,0.0,-265.9127,-134.4206,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CORDOBA,-189.5,0.0,-255.246,-123.754,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,CUNDINAMARCA,-136.8667,0.0,-205.8217,-67.9116,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,GUAVIARE,-202.0667,0.0,-271.0217,-133.1116,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,HUILA,-173.0,0.0,-238.746,-107.254,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,LA GUAJIRA,-185.5,0.0,-251.246,-119.754,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,MAGDALENA,-165.1667,0.0,-230.9127,-99.4206,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,META,-168.6667,0.0,-234.4127,-102.9206,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,NARINO,-176.0,0.0,-241.746,-110.254,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,NORTE DE SANTANDER,-136.0,0.0,-201.746,-70.254,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,PUTUMAYO,-183.2667,0.0,-252.2217,-114.3116,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,QUINDIO,-183.8667,0.0,-252.8217,-114.9116,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,RISARALDA,-154.8333,0.0,-220.5794,-89.0873,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,SAN ANDRES ISLAS,-206.3333,0.0,-286.8555,-125.8112,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,SANTANDER,-166.1667,0.0,-231.9127,-100.4206,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,SUCRE,-189.8667,0.0,-258.8217,-120.9116,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,TOLIMA,-170.0,0.0,-235.746,-104.254,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ANTIOQUIA,VALLE DEL CAUCA,-30.8333,0.9946,-96.5794,34.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ANTIOQUIA,VICHADA,-206.6667,0.0,-299.6456,-113.6877,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ARAUCA,ATLANTICO,9.6667,1.0,-56.0794,75.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,BOGOTA D.C.,33.6667,0.9817,-32.0794,99.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,BOLIVAR,13.5,1.0,-52.246,79.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,BOYACA,-10.0,1.0,-75.746,55.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CALDAS,24.0,0.9999,-41.746,89.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CAQUETA,-2.9667,1.0,-71.9217,65.9884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CASANARE,-14.1667,1.0,-79.9127,51.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CAUCA,-6.0,1.0,-71.746,59.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CESAR,20.4333,1.0,-48.5217,89.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CHOCO,-21.6667,1.0,-87.4127,44.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CORDOBA,-11.0,1.0,-76.746,54.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,CUNDINAMARCA,41.6333,0.8852,-27.3217,110.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,GUAVIARE,-23.5667,1.0,-92.5217,45.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,HUILA,5.5,1.0,-60.246,71.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,LA GUAJIRA,-7.0,1.0,-72.746,58.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,MAGDALENA,13.3333,1.0,-52.4127,79.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,META,9.8333,1.0,-55.9127,75.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,NARINO,2.5,1.0,-63.246,68.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,NORTE DE SANTANDER,42.5,0.7956,-23.246,108.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,PUTUMAYO,-4.7667,1.0,-73.7217,64.1884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,QUINDIO,-5.3667,1.0,-74.3217,63.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,RISARALDA,23.6667,0.9999,-42.0794,89.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,SAN ANDRES ISLAS,-27.8333,1.0,-108.3555,52.6888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,SANTANDER,12.3333,1.0,-53.4127,78.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,SUCRE,-11.3667,1.0,-80.3217,57.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,TOLIMA,8.5,1.0,-57.246,74.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ARAUCA,VALLE DEL CAUCA,147.6667,0.0,81.9206,213.4127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ARAUCA,VICHADA,-28.1667,1.0,-121.1456,64.8123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,BOGOTA D.C.,24.0,0.9999,-41.746,89.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,BOLIVAR,3.8333,1.0,-61.9127,69.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,BOYACA,-19.6667,1.0,-85.4127,46.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CALDAS,14.3333,1.0,-51.4127,80.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CAQUETA,-12.6333,1.0,-81.5884,56.3217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CASANARE,-23.8333,0.9999,-89.5794,41.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CAUCA,-15.6667,1.0,-81.4127,50.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CESAR,10.7667,1.0,-58.1884,79.7217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CHOCO,-31.3333,0.9932,-97.0794,34.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CORDOBA,-20.6667,1.0,-86.4127,45.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,CUNDINAMARCA,31.9667,0.9955,-36.9884,100.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,GUAVIARE,-33.2333,0.992,-102.1884,35.7217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,HUILA,-4.1667,1.0,-69.9127,61.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,LA GUAJIRA,-16.6667,1.0,-82.4127,49.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,MAGDALENA,3.6667,1.0,-62.0794,69.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,META,0.1667,1.0,-65.5794,65.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,NARINO,-7.1667,1.0,-72.9127,58.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,NORTE DE SANTANDER,32.8333,0.9869,-32.9127,98.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,PUTUMAYO,-14.4333,1.0,-83.3884,54.5217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,QUINDIO,-15.0333,1.0,-83.9884,53.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,RISARALDA,14.0,1.0,-51.746,79.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,SAN ANDRES ISLAS,-37.5,0.9952,-118.0221,43.0221,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,SANTANDER,2.6667,1.0,-63.0794,68.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,SUCRE,-21.0333,1.0,-89.9884,47.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,TOLIMA,-1.1667,1.0,-66.9127,64.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+ATLANTICO,VALLE DEL CAUCA,138.0,0.0,72.254,203.746,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+ATLANTICO,VICHADA,-37.8333,0.9995,-130.8123,55.1456,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,BOLIVAR,-20.1667,1.0,-85.9127,45.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,BOYACA,-43.6667,0.7506,-109.4127,22.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,CALDAS,-9.6667,1.0,-75.4127,56.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,CAQUETA,-36.6333,0.9708,-105.5884,32.3217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,CASANARE,-47.8333,0.5668,-113.5794,17.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,CAUCA,-39.6667,0.886,-105.4127,26.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,CESAR,-13.2333,1.0,-82.1884,55.7217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,CHOCO,-55.3333,0.2565,-121.0794,10.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,CORDOBA,-44.6667,0.7091,-110.4127,21.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,CUNDINAMARCA,7.9667,1.0,-60.9884,76.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,GUAVIARE,-57.2333,0.2825,-126.1884,11.7217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,HUILA,-28.1667,0.9987,-93.9127,37.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,LA GUAJIRA,-40.6667,0.8575,-106.4127,25.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,MAGDALENA,-20.3333,1.0,-86.0794,45.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,META,-23.8333,0.9999,-89.5794,41.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,NARINO,-31.1667,0.9937,-96.9127,34.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,NORTE DE SANTANDER,8.8333,1.0,-56.9127,74.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,PUTUMAYO,-38.4333,0.9491,-107.3884,30.5217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,QUINDIO,-39.0333,0.9397,-107.9884,29.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,RISARALDA,-10.0,1.0,-75.746,55.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,SAN ANDRES ISLAS,-61.5,0.4583,-142.0221,19.0221,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,SANTANDER,-21.3333,1.0,-87.0794,44.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,SUCRE,-45.0333,0.7792,-113.9884,23.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,TOLIMA,-25.1667,0.9998,-90.9127,40.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOGOTA D.C.,VALLE DEL CAUCA,114.0,0.0,48.254,179.746,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOGOTA D.C.,VICHADA,-61.8333,0.7483,-154.8123,31.1456,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,BOYACA,-23.5,1.0,-89.246,42.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CALDAS,10.5,1.0,-55.246,76.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CAQUETA,-16.4667,1.0,-85.4217,52.4884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CASANARE,-27.6667,0.9991,-93.4127,38.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CAUCA,-19.5,1.0,-85.246,46.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CESAR,6.9333,1.0,-62.0217,75.8884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CHOCO,-35.1667,0.9683,-100.9127,30.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CORDOBA,-24.5,0.9999,-90.246,41.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,CUNDINAMARCA,28.1333,0.9994,-40.8217,97.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,GUAVIARE,-37.0667,0.9664,-106.0217,31.8884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,HUILA,-8.0,1.0,-73.746,57.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,LA GUAJIRA,-20.5,1.0,-86.246,45.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,MAGDALENA,-0.1667,1.0,-65.9127,65.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,META,-3.6667,1.0,-69.4127,62.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,NARINO,-11.0,1.0,-76.746,54.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,NORTE DE SANTANDER,29.0,0.9979,-36.746,94.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,PUTUMAYO,-18.2667,1.0,-87.2217,50.6884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,QUINDIO,-18.8667,1.0,-87.8217,50.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,RISARALDA,10.1667,1.0,-55.5794,75.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,SAN ANDRES ISLAS,-41.3333,0.9811,-121.8555,39.1888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,SANTANDER,-1.1667,1.0,-66.9127,64.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,SUCRE,-24.8667,0.9999,-93.8217,44.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,TOLIMA,-5.0,1.0,-70.746,60.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOLIVAR,VALLE DEL CAUCA,134.1667,0.0,68.4206,199.9127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOLIVAR,VICHADA,-41.6667,0.9973,-134.6456,51.3123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CALDAS,34.0,0.9792,-31.746,99.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CAQUETA,7.0333,1.0,-61.9217,75.9884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CASANARE,-4.1667,1.0,-69.9127,61.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CAUCA,4.0,1.0,-61.746,69.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CESAR,30.4333,0.9979,-38.5217,99.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CHOCO,-11.6667,1.0,-77.4127,54.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CORDOBA,-1.0,1.0,-66.746,64.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,CUNDINAMARCA,51.6333,0.5027,-17.3217,120.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,GUAVIARE,-13.5667,1.0,-82.5217,55.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,HUILA,15.5,1.0,-50.246,81.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,LA GUAJIRA,3.0,1.0,-62.746,68.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,MAGDALENA,23.3333,1.0,-42.4127,89.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,META,19.8333,1.0,-45.9127,85.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,NARINO,12.5,1.0,-53.246,78.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,NORTE DE SANTANDER,52.5,0.3609,-13.246,118.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,PUTUMAYO,5.2333,1.0,-63.7217,74.1884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,QUINDIO,4.6333,1.0,-64.3217,73.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,RISARALDA,33.6667,0.9817,-32.0794,99.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,SAN ANDRES ISLAS,-17.8333,1.0,-98.3555,62.6888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,SANTANDER,22.3333,1.0,-43.4127,88.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,SUCRE,-1.3667,1.0,-70.3217,67.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,TOLIMA,18.5,1.0,-47.246,84.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+BOYACA,VALLE DEL CAUCA,157.6667,0.0,91.9206,223.4127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+BOYACA,VICHADA,-18.1667,1.0,-111.1456,74.8123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CAQUETA,-26.9667,0.9997,-95.9217,41.9884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CASANARE,-38.1667,0.9215,-103.9127,27.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CAUCA,-30.0,0.9965,-95.746,35.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CESAR,-3.5667,1.0,-72.5217,65.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CHOCO,-45.6667,0.6654,-111.4127,20.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CORDOBA,-35.0,0.9701,-100.746,30.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,CUNDINAMARCA,17.6333,1.0,-51.3217,86.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,GUAVIARE,-47.5667,0.6793,-116.5217,21.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,HUILA,-18.5,1.0,-84.246,47.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,LA GUAJIRA,-31.0,0.9942,-96.746,34.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,MAGDALENA,-10.6667,1.0,-76.4127,55.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,META,-14.1667,1.0,-79.9127,51.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,NARINO,-21.5,1.0,-87.246,44.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,NORTE DE SANTANDER,18.5,1.0,-47.246,84.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,PUTUMAYO,-28.7667,0.9992,-97.7217,40.1884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,QUINDIO,-29.3667,0.9988,-98.3217,39.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,RISARALDA,-0.3333,1.0,-66.0794,65.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,SAN ANDRES ISLAS,-51.8333,0.8022,-132.3555,28.6888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,SANTANDER,-11.6667,1.0,-77.4127,54.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,SUCRE,-35.3667,0.9813,-104.3217,33.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,TOLIMA,-15.5,1.0,-81.246,50.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CALDAS,VALLE DEL CAUCA,123.6667,0.0,57.9206,189.4127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CALDAS,VICHADA,-52.1667,0.9452,-145.1456,40.8123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CASANARE,-11.2,1.0,-80.155,57.755,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CAUCA,-3.0333,1.0,-71.9884,65.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CESAR,23.4,1.0,-48.6212,95.4212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CHOCO,-18.7,1.0,-87.655,50.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CORDOBA,-8.0333,1.0,-76.9884,60.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,CUNDINAMARCA,44.6,0.856,-27.4212,116.6212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,GUAVIARE,-20.6,1.0,-92.6212,51.4212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,HUILA,8.4667,1.0,-60.4884,77.4217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,LA GUAJIRA,-4.0333,1.0,-72.9884,64.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,MAGDALENA,16.3,1.0,-52.655,85.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,META,12.8,1.0,-56.155,81.755,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,NARINO,5.4667,1.0,-63.4884,74.4217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,NORTE DE SANTANDER,45.4667,0.7632,-23.4884,114.4217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,PUTUMAYO,-1.8,1.0,-73.8212,70.2212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,QUINDIO,-2.4,1.0,-74.4212,69.6212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,RISARALDA,26.6333,0.9998,-42.3217,95.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,SAN ANDRES ISLAS,-24.8667,1.0,-108.0296,58.2962,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,SANTANDER,15.3,1.0,-53.655,84.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,SUCRE,-8.4,1.0,-80.4212,63.6212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,TOLIMA,11.4667,1.0,-57.4884,80.4217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAQUETA,VALLE DEL CAUCA,150.6333,0.0,81.6783,219.5884,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAQUETA,VICHADA,-25.2,1.0,-120.4751,70.0751,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,CAUCA,8.1667,1.0,-57.5794,73.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,CESAR,34.6,0.986,-34.355,103.555,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,CHOCO,-7.5,1.0,-73.246,58.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,CORDOBA,3.1667,1.0,-62.5794,68.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,CUNDINAMARCA,55.8,0.3331,-13.155,124.755,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,GUAVIARE,-9.4,1.0,-78.355,59.555,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,HUILA,19.6667,1.0,-46.0794,85.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,LA GUAJIRA,7.1667,1.0,-58.5794,72.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,MAGDALENA,27.5,0.9991,-38.246,93.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,META,24.0,0.9999,-41.746,89.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,NARINO,16.6667,1.0,-49.0794,82.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,NORTE DE SANTANDER,56.6667,0.2148,-9.0794,122.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,PUTUMAYO,9.4,1.0,-59.555,78.355,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,QUINDIO,8.8,1.0,-60.155,77.755,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,RISARALDA,37.8333,0.9283,-27.9127,103.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,SAN ANDRES ISLAS,-13.6667,1.0,-94.1888,66.8555,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,SANTANDER,26.5,0.9996,-39.246,92.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,SUCRE,2.8,1.0,-66.155,71.755,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,TOLIMA,22.6667,1.0,-43.0794,88.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CASANARE,VALLE DEL CAUCA,161.8333,0.0,96.0873,227.5794,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CASANARE,VICHADA,-14.0,1.0,-106.9789,78.9789,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,CESAR,26.4333,0.9998,-42.5217,95.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,CHOCO,-15.6667,1.0,-81.4127,50.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,CORDOBA,-5.0,1.0,-70.746,60.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,CUNDINAMARCA,47.6333,0.6765,-21.3217,116.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,GUAVIARE,-17.5667,1.0,-86.5217,51.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,HUILA,11.5,1.0,-54.246,77.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,LA GUAJIRA,-1.0,1.0,-66.746,64.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,MAGDALENA,19.3333,1.0,-46.4127,85.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,META,15.8333,1.0,-49.9127,81.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,NARINO,8.5,1.0,-57.246,74.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,NORTE DE SANTANDER,48.5,0.5361,-17.246,114.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,PUTUMAYO,1.2333,1.0,-67.7217,70.1884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,QUINDIO,0.6333,1.0,-68.3217,69.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,RISARALDA,29.6667,0.997,-36.0794,95.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,SAN ANDRES ISLAS,-21.8333,1.0,-102.3555,58.6888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,SANTANDER,18.3333,1.0,-47.4127,84.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,SUCRE,-5.3667,1.0,-74.3217,63.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,TOLIMA,14.5,1.0,-51.246,80.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CAUCA,VALLE DEL CAUCA,153.6667,0.0,87.9206,219.4127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CAUCA,VICHADA,-22.1667,1.0,-115.1456,70.8123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,CHOCO,-42.1,0.8729,-111.055,26.855,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,CORDOBA,-31.4333,0.9965,-100.3884,37.5217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,CUNDINAMARCA,21.2,1.0,-50.8212,93.2212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,GUAVIARE,-44.0,0.8722,-116.0212,28.0212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,HUILA,-14.9333,1.0,-83.8884,54.0217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,LA GUAJIRA,-27.4333,0.9996,-96.3884,41.5217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,MAGDALENA,-7.1,1.0,-76.055,61.855,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,META,-10.6,1.0,-79.555,58.355,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,NARINO,-17.9333,1.0,-86.8884,51.0217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,NORTE DE SANTANDER,22.0667,1.0,-46.8884,91.0217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,PUTUMAYO,-25.2,1.0,-97.2212,46.8212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,QUINDIO,-25.8,1.0,-97.8212,46.2212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,RISARALDA,3.2333,1.0,-65.7217,72.1884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,SAN ANDRES ISLAS,-48.2667,0.9217,-131.4296,34.8962,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,SANTANDER,-8.1,1.0,-77.055,60.855,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,SUCRE,-31.8,0.9979,-103.8212,40.2212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,TOLIMA,-11.9333,1.0,-80.8884,57.0217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CESAR,VALLE DEL CAUCA,127.2333,0.0,58.2783,196.1884,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CESAR,VICHADA,-48.6,0.9826,-143.8751,46.6751,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,CORDOBA,10.6667,1.0,-55.0794,76.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,CUNDINAMARCA,63.3,0.1249,-5.655,132.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,GUAVIARE,-1.9,1.0,-70.855,67.055,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,HUILA,27.1667,0.9993,-38.5794,92.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,LA GUAJIRA,14.6667,1.0,-51.0794,80.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,MAGDALENA,35.0,0.9701,-30.746,100.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,META,31.5,0.9927,-34.246,97.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,NARINO,24.1667,0.9999,-41.5794,89.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,NORTE DE SANTANDER,64.1667,0.0663,-1.5794,129.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,PUTUMAYO,16.9,1.0,-52.055,85.855,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,QUINDIO,16.3,1.0,-52.655,85.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,RISARALDA,45.3333,0.6802,-20.4127,111.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,SAN ANDRES ISLAS,-6.1667,1.0,-86.6888,74.3555,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,SANTANDER,34.0,0.9792,-31.746,99.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,SUCRE,10.3,1.0,-58.655,79.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,TOLIMA,30.1667,0.9961,-35.5794,95.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CHOCO,VALLE DEL CAUCA,169.3333,0.0,103.5873,235.0794,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CHOCO,VICHADA,-6.5,1.0,-99.4789,86.4789,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,CUNDINAMARCA,52.6333,0.4597,-16.3217,121.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,GUAVIARE,-12.5667,1.0,-81.5217,56.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,HUILA,16.5,1.0,-49.246,82.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,LA GUAJIRA,4.0,1.0,-61.746,69.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,MAGDALENA,24.3333,0.9999,-41.4127,90.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,META,20.8333,1.0,-44.9127,86.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,NARINO,13.5,1.0,-52.246,79.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,NORTE DE SANTANDER,53.5,0.3217,-12.246,119.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,PUTUMAYO,6.2333,1.0,-62.7217,75.1884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,QUINDIO,5.6333,1.0,-63.3217,74.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,RISARALDA,34.6667,0.9734,-31.0794,100.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,SAN ANDRES ISLAS,-16.8333,1.0,-97.3555,63.6888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,SANTANDER,23.3333,1.0,-42.4127,89.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,SUCRE,-0.3667,1.0,-69.3217,68.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,TOLIMA,19.5,1.0,-46.246,85.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CORDOBA,VALLE DEL CAUCA,158.6667,0.0,92.9206,224.4127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CORDOBA,VICHADA,-17.1667,1.0,-110.1456,75.8123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,GUAVIARE,-65.2,0.1421,-137.2212,6.8212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,HUILA,-36.1333,0.9754,-105.0884,32.8217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,LA GUAJIRA,-48.6333,0.6339,-117.5884,20.3217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,MAGDALENA,-28.3,0.9994,-97.255,40.655,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,META,-31.8,0.9958,-100.755,37.155,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,NARINO,-39.1333,0.938,-108.0884,29.8217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,NORTE DE SANTANDER,0.8667,1.0,-68.0884,69.8217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,PUTUMAYO,-46.4,0.8009,-118.4212,25.6212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,QUINDIO,-47.0,0.7805,-119.0212,25.0212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,RISARALDA,-17.9667,1.0,-86.9217,50.9884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,SAN ANDRES ISLAS,-69.4667,0.2704,-152.6296,13.6962,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,SANTANDER,-29.3,0.9989,-98.255,39.655,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,SUCRE,-53.0,0.5415,-125.0212,19.0212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,TOLIMA,-33.1333,0.9923,-102.0884,35.8217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+CUNDINAMARCA,VALLE DEL CAUCA,106.0333,0.0,37.0783,174.9884,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+CUNDINAMARCA,VICHADA,-69.8,0.5515,-165.0751,25.4751,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,HUILA,29.0667,0.999,-39.8884,98.0217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,LA GUAJIRA,16.5667,1.0,-52.3884,85.5217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,MAGDALENA,36.9,0.9682,-32.055,105.855,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,META,33.4,0.9914,-35.555,102.355,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,NARINO,26.0667,0.9999,-42.8884,95.0217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,NORTE DE SANTANDER,66.0667,0.0812,-2.8884,135.0217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,PUTUMAYO,18.8,1.0,-53.2212,90.8212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,QUINDIO,18.2,1.0,-53.8212,90.2212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,RISARALDA,47.2333,0.6932,-21.7217,116.1884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,SAN ANDRES ISLAS,-4.2667,1.0,-87.4296,78.8962,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,SANTANDER,35.9,0.9773,-33.055,104.855,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,SUCRE,12.2,1.0,-59.8212,84.2212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,TOLIMA,32.0667,0.9953,-36.8884,101.0217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+GUAVIARE,VALLE DEL CAUCA,171.2333,0.0,102.2783,240.1884,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+GUAVIARE,VICHADA,-4.6,1.0,-99.8751,90.6751,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,LA GUAJIRA,-12.5,1.0,-78.246,53.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,MAGDALENA,7.8333,1.0,-57.9127,73.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,META,4.3333,1.0,-61.4127,70.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,NARINO,-3.0,1.0,-68.746,62.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,NORTE DE SANTANDER,37.0,0.9434,-28.746,102.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,PUTUMAYO,-10.2667,1.0,-79.2217,58.6884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,QUINDIO,-10.8667,1.0,-79.8217,58.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,RISARALDA,18.1667,1.0,-47.5794,83.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,SAN ANDRES ISLAS,-33.3333,0.9993,-113.8555,47.1888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,SANTANDER,6.8333,1.0,-58.9127,72.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,SUCRE,-16.8667,1.0,-85.8217,52.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,TOLIMA,3.0,1.0,-62.746,68.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+HUILA,VALLE DEL CAUCA,142.1667,0.0,76.4206,207.9127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+HUILA,VICHADA,-33.6667,0.9999,-126.6456,59.3123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,MAGDALENA,20.3333,1.0,-45.4127,86.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,META,16.8333,1.0,-48.9127,82.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,NARINO,9.5,1.0,-56.246,75.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,NORTE DE SANTANDER,49.5,0.4904,-16.246,115.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,PUTUMAYO,2.2333,1.0,-66.7217,71.1884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,QUINDIO,1.6333,1.0,-67.3217,70.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,RISARALDA,30.6667,0.9951,-35.0794,96.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,SAN ANDRES ISLAS,-20.8333,1.0,-101.3555,59.6888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,SANTANDER,19.3333,1.0,-46.4127,85.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,SUCRE,-4.3667,1.0,-73.3217,64.5884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,TOLIMA,15.5,1.0,-50.246,81.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+LA GUAJIRA,VALLE DEL CAUCA,154.6667,0.0,88.9206,220.4127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+LA GUAJIRA,VICHADA,-21.1667,1.0,-114.1456,71.8123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,META,-3.5,1.0,-69.246,62.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,NARINO,-10.8333,1.0,-76.5794,54.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,NORTE DE SANTANDER,29.1667,0.9977,-36.5794,94.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,PUTUMAYO,-18.1,1.0,-87.055,50.855,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,QUINDIO,-18.7,1.0,-87.655,50.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,RISARALDA,10.3333,1.0,-55.4127,76.0794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,SAN ANDRES ISLAS,-41.1667,0.982,-121.6888,39.3555,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,SANTANDER,-1.0,1.0,-66.746,64.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,SUCRE,-24.7,1.0,-93.655,44.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,TOLIMA,-4.8333,1.0,-70.5794,60.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+MAGDALENA,VALLE DEL CAUCA,134.3333,0.0,68.5873,200.0794,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+MAGDALENA,VICHADA,-41.5,0.9975,-134.4789,51.4789,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,NARINO,-7.3333,1.0,-73.0794,58.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,NORTE DE SANTANDER,32.6667,0.9877,-33.0794,98.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,PUTUMAYO,-14.6,1.0,-83.555,54.355,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,QUINDIO,-15.2,1.0,-84.155,53.755,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,RISARALDA,13.8333,1.0,-51.9127,79.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,SAN ANDRES ISLAS,-37.6667,0.9948,-118.1888,42.8555,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,SANTANDER,2.5,1.0,-63.246,68.246,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,SUCRE,-21.2,1.0,-90.155,47.755,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,TOLIMA,-1.3333,1.0,-67.0794,64.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+META,VALLE DEL CAUCA,137.8333,0.0,72.0873,203.5794,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+META,VICHADA,-38.0,0.9994,-130.9789,54.9789,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,NORTE DE SANTANDER,40.0,0.8769,-25.746,105.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,PUTUMAYO,-7.2667,1.0,-76.2217,61.6884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,QUINDIO,-7.8667,1.0,-76.8217,61.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,RISARALDA,21.1667,1.0,-44.5794,86.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,SAN ANDRES ISLAS,-30.3333,0.9999,-110.8555,50.1888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,SANTANDER,9.8333,1.0,-55.9127,75.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,SUCRE,-13.8667,1.0,-82.8217,55.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,TOLIMA,6.0,1.0,-59.746,71.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NARINO,VALLE DEL CAUCA,145.1667,0.0,79.4206,210.9127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+NARINO,VICHADA,-30.6667,1.0,-123.6456,62.3123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,PUTUMAYO,-47.2667,0.6918,-116.2217,21.6884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,QUINDIO,-47.8667,0.6667,-116.8217,21.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,RISARALDA,-18.8333,1.0,-84.5794,46.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,SAN ANDRES ISLAS,-70.3333,0.1932,-150.8555,10.1888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,SANTANDER,-30.1667,0.9961,-95.9127,35.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,SUCRE,-53.8667,0.4083,-122.8217,15.0884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,TOLIMA,-34.0,0.9792,-99.746,31.746,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,VALLE DEL CAUCA,105.1667,0.0,39.4206,170.9127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+NORTE DE SANTANDER,VICHADA,-70.6667,0.4693,-163.6456,22.3123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,QUINDIO,-0.6,1.0,-72.6212,71.4212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,RISARALDA,28.4333,0.9993,-40.5217,97.3884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,SAN ANDRES ISLAS,-23.0667,1.0,-106.2296,60.0962,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,SANTANDER,17.1,1.0,-51.855,86.055,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,SUCRE,-6.6,1.0,-78.6212,65.4212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,TOLIMA,13.2667,1.0,-55.6884,82.2217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+PUTUMAYO,VALLE DEL CAUCA,152.4333,0.0,83.4783,221.3884,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+PUTUMAYO,VICHADA,-23.4,1.0,-118.6751,71.8751,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,RISARALDA,29.0333,0.999,-39.9217,97.9884,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,SAN ANDRES ISLAS,-22.4667,1.0,-105.6296,60.6962,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,SANTANDER,17.7,1.0,-51.255,86.655,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,SUCRE,-6.0,1.0,-78.0212,66.0212,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,TOLIMA,13.8667,1.0,-55.0884,82.8217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+QUINDIO,VALLE DEL CAUCA,153.0333,0.0,84.0783,221.9884,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+QUINDIO,VICHADA,-22.8,1.0,-118.0751,72.4751,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,SAN ANDRES ISLAS,-51.5,0.8119,-132.0221,29.0221,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,SANTANDER,-11.3333,1.0,-77.0794,54.4127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,SUCRE,-35.0333,0.9835,-103.9884,33.9217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,TOLIMA,-15.1667,1.0,-80.9127,50.5794,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+RISARALDA,VALLE DEL CAUCA,124.0,0.0,58.254,189.746,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+RISARALDA,VICHADA,-51.8333,0.9489,-144.8123,41.1456,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SAN ANDRES ISLAS,SANTANDER,40.1667,0.9871,-40.3555,120.6888,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SAN ANDRES ISLAS,SUCRE,16.4667,1.0,-66.6962,99.6296,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SAN ANDRES ISLAS,TOLIMA,36.3333,0.997,-44.1888,116.8555,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SAN ANDRES ISLAS,VALLE DEL CAUCA,175.5,0.0,94.9779,256.0221,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+SAN ANDRES ISLAS,VICHADA,-0.3333,1.0,-104.2869,103.6203,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SANTANDER,SUCRE,-23.7,1.0,-92.655,45.255,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SANTANDER,TOLIMA,-3.8333,1.0,-69.5794,61.9127,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SANTANDER,VALLE DEL CAUCA,135.3333,0.0,69.5873,201.0794,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+SANTANDER,VICHADA,-40.5,0.9983,-133.4789,52.4789,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SUCRE,TOLIMA,19.8667,1.0,-49.0884,88.8217,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+SUCRE,VALLE DEL CAUCA,159.0333,0.0,90.0783,227.9884,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+SUCRE,VICHADA,-16.8,1.0,-112.0751,78.4751,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+TOLIMA,VALLE DEL CAUCA,139.1667,0.0,73.4206,204.9127,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.
+TOLIMA,VICHADA,-36.6667,0.9997,-129.6456,56.3123,False,Homicidios,departamento,No se detecta una diferencia significativa entre estos grupos.
+VALLE DEL CAUCA,VICHADA,-175.8333,0.0,-268.8123,-82.8544,True,Homicidios,departamento,La comparacion sugiere una diferencia significativa entre estos grupos.

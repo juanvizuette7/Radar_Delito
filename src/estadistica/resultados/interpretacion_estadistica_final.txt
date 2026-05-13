@@ -1,0 +1,49 @@
+VALIDACION ESTADISTICA FINAL
+
+1. Que se hizo
+- Se aplicaron pruebas ANOVA por separado para cada dashboard del proyecto.
+- En homicidios se compararon departamentos.
+- En delitos sexuales se compararon grupos etarios.
+- En hurto de vehiculos se compararon departamentos.
+
+2. Por que no se compararon directamente los tres delitos
+- Los tres datasets tienen periodos temporales y estructuras distintas.
+- Por esa razon, la comparacion entre homicidios, delitos sexuales y hurtos queda como lectura descriptiva en los dashboards, no como conclusion inferencial general.
+
+3. Como se construyo la prueba
+- La variable objetivo fue cantidad.
+- Para que ANOVA fuera valido, se trabajo con cantidades agregadas por grupo y periodo.
+- Esto permite contar con varias observaciones por grupo dentro de cada dashboard.
+
+4. Que significa p < 0.05
+- Cuando el valor p es menor que 0.05, se rechaza la hipotesis nula.
+- En lenguaje simple, eso sugiere que las diferencias observadas no parecen deberse solo al azar.
+
+5. Que hace Tukey
+- ANOVA indica si hay diferencias generales.
+- Tukey ayuda a identificar entre que grupos aparecen esas diferencias.
+
+6. Resultados por dashboard
+- Homicidios:
+  - Grupo comparado: departamento
+  - Estadistico F: 12.939357
+  - Valor p: 2.4906801235421308e-27
+  - Decision: Rechazar H0
+  - Lectura simple: Se rechaza la hipotesis nula: los resultados sugieren diferencias significativas entre algunos grupos.
+- Delitos sexuales:
+  - Grupo comparado: grupo_etario
+  - Estadistico F: 58.604871
+  - Valor p: 9.209931016054122e-22
+  - Decision: Rechazar H0
+  - Lectura simple: Se rechaza la hipotesis nula: los resultados sugieren diferencias significativas entre algunos grupos.
+- Hurto de vehiculos:
+  - Grupo comparado: departamento
+  - Estadistico F: 25.743758
+  - Valor p: 2.0181310021750327e-109
+  - Decision: Rechazar H0
+  - Lectura simple: Se rechaza la hipotesis nula: los resultados sugieren diferencias significativas entre algunos grupos.
+
+7. Conclusion sencilla
+- Los resultados permiten complementar los dashboards con una validacion estadistica por separado para cada tipo de delito.
+- En lugar de mezclar datasets distintos, se evaluo cada dashboard con sus propios grupos internos.
+- Esto deja una interpretacion mas clara, mas prudente y mejor sustentada para exposicion.

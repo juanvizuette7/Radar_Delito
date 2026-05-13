@@ -5,7 +5,10 @@ import json
 import unicodedata
 from collections import Counter
 from dataclasses import dataclass
+from datetime import datetime
+from math import ceil, floor
 from pathlib import Path
+from statistics import mean
 
 
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -13,10 +16,92 @@ CLEAN_DIR = BASE_DIR / "data" / "clean"
 OUTPUT_PATH = BASE_DIR / "web" / "src" / "data" / "aiReports.ts"
 
 
-def fix_text(value: str) -> str:
+@dataclass(frozen=True)
+class DatasetConfig:
+    key: str
+    file_name: str
+    primary_field: str
+    secondary_field: str
+    tertiary_field: str
+    quaternary_field: str
+    factor_label_es: str
+    factor_label_en: str
+
+
+@dataclass(frozen=True)
+class DatasetStats:
+    rows_count: int
+    total: int
+    start_date: str
+    end_date: str
+    by_year: Counter[int]
+    by_period: Counter[str]
+    departments: Counter[str]
+    municipalities: Counter[str]
+    primary: Counter[str]
+    secondary: Counter[str]
+    tertiary: Counter[str]
+    quaternary: Counter[str]
+
+
+CONFIGS: dict[str, DatasetConfig] = {
+    "homicidios": DatasetConfig(
+        key="homicidios",
+        file_name="homicidios_clean.csv",
+        primary_field="arma_medio",
+        secondary_field="_modalidad_presunta",
+        tertiary_field="sexo",
+        quaternary_field="zona",
+        factor_label_es="Arma dominante",
+        factor_label_en="Dominant weapon",
+    ),
+    "sexuales": DatasetConfig(
+        key="sexuales",
+        file_name="delitos_sexuales_clean.csv",
+        primary_field="delito",
+        secondary_field="genero",
+        tertiary_field="grupo_etario",
+        quaternary_field="armas_medios",
+        factor_label_es="Delito dominante",
+        factor_label_en="Dominant offense",
+    ),
+    "hurtos": DatasetConfig(
+        key="hurtos",
+        file_name="hurtos_personas_clean.csv",
+        primary_field="tipo_de_hurto",
+        secondary_field="genero",
+        tertiary_field="grupo_etario",
+        quaternary_field="armas_medios",
+        factor_label_es="Modalidad dominante",
+        factor_label_en="Dominant modality",
+    ),
+}
+
+
+METHOD_LABELS = {
+    "es": {
+        "last": "Ultimo valor",
+        "ma3": "Promedio movil 3 meses",
+        "ma6": "Promedio movil 6 meses",
+        "wma3": "Tendencia ponderada reciente",
+        "seasonal12": "Repeticion del mismo mes",
+        "blend": "Tendencia reciente + estacionalidad",
+    },
+    "en": {
+        "last": "Last value",
+        "ma3": "3-month moving average",
+        "ma6": "6-month moving average",
+        "wma3": "Weighted recent trend",
+        "seasonal12": "Same-month repeat",
+        "blend": "Recent trend + seasonality",
+    },
+}
+
+
+def normalize_text(value: str) -> str:
     text = (value or "").strip()
     if not text:
-        return ""
+        return "NO REPORTADO"
 
     try:
         text = text.encode("latin1").decode("utf-8")
@@ -25,563 +110,948 @@ def fix_text(value: str) -> str:
 
     text = unicodedata.normalize("NFKD", text)
     text = "".join(character for character in text if not unicodedata.combining(character))
-    return text
+    text = " ".join(text.replace("(CT)", "").split())
+    return text.upper()
 
 
-def format_int_es(value: int) -> str:
-    return f"{value:,}".replace(",", ".")
+def display_label(value: str) -> str:
+    text = normalize_text(value)
+    special = {
+        "BOGOTA D.C.": "Bogota D.C.",
+        "BOGOTA": "Bogota",
+        "NORTE DE SANTANDER": "Norte de Santander",
+        "VALLE DEL CAUCA": "Valle del Cauca",
+        "NO REPORTADO": "No Reportado",
+        "NO REPORTADA": "No Reportada",
+        "NO REPORTA": "No Reporta",
+    }
+    if text in special:
+        return special[text]
+
+    title_text = text.title()
+    title_text = title_text.replace(" D.C.", " D.C.")
+    title_text = title_text.replace(" Y ", " y ")
+    title_text = title_text.replace(" De ", " de ")
+    title_text = title_text.replace(" Del ", " del ")
+    title_text = title_text.replace(" La ", " la ")
+    return title_text
 
 
-def format_int_en(value: int) -> str:
-    return f"{value:,}"
+def translate_common_en(value: str) -> str:
+    text = normalize_text(value)
+    translations = {
+        "MASCULINO": "Male",
+        "FEMENINO": "Female",
+        "NO REPORTA": "Not Reported",
+        "NO REPORTADO": "Not Reported",
+        "NO REPORTADA": "Not Reported",
+        "ADULTOS": "Adults",
+        "ADOLESCENTES": "Teenagers",
+        "MENORES": "Minors",
+        "URBANA": "Urban",
+        "RURAL": "Rural",
+        "ARMA DE FUEGO": "Firearm",
+        "ARMA BLANCA / CORTOPUNZANTE": "Sharp weapon",
+        "ARTICULO 239. HURTO MOTOCICLETAS": "Article 239. Motorcycle theft",
+        "ARTICULO 239. HURTO AUTOMOTORES": "Article 239. Motor vehicle theft",
+    }
+    return translations.get(text, display_label(text))
+
+
+def format_int(value: int, language: str) -> str:
+    separator = "." if language == "es" else ","
+    return f"{value:,}".replace(",", separator)
 
 
 def format_pct(value: float) -> str:
     return f"{value:.1f}%"
 
 
-def format_month(value: int) -> str:
-    return f"{value:02d}"
+def month_sequence(start_period: str, end_period: str) -> list[str]:
+    year, month = (int(part) for part in start_period.split("-"))
+    end_year, end_month = (int(part) for part in end_period.split("-"))
+    sequence: list[str] = []
+
+    while (year, month) <= (end_year, end_month):
+        sequence.append(f"{year:04d}-{month:02d}")
+        if month == 12:
+            year += 1
+            month = 1
+        else:
+            month += 1
+
+    return sequence
 
 
-def translate_common_en(value: str) -> str:
-    translations = {
-        "MASCULINO": "male",
-        "FEMENINO": "female",
-        "ADULTOS": "adults",
-        "MENORES": "minors",
-        "ADOLESCENTES": "adolescents",
-        "URBANA": "urban",
-        "RURAL": "rural",
-        "NO REPORTADA": "not reported",
-        "NO REPORTADO": "not reported",
-        "ARMA DE FUEGO": "firearm",
-        "ARMA BLANCA / CORTOPUNZANTE": "sharp weapon",
-        "ARTICULO 239. HURTO MOTOCICLETAS": "article 239. motorcycle theft",
-        "ARTICULO 239. HURTO AUTOMOTORES": "article 239. motor vehicle theft",
-    }
-    return translations.get(value, value.title())
+def next_period(period: str) -> str:
+    year, month = (int(part) for part in period.split("-"))
+    if month == 12:
+        return f"{year + 1:04d}-01"
+    return f"{year:04d}-{month + 1:02d}"
 
 
-@dataclass(frozen=True)
-class DatasetStats:
-    rows: int
-    total: int
-    start_date: str
-    end_date: str
-    by_year: Counter[int]
-    by_month: Counter[int]
-    departments: Counter[str]
-    municipalities: Counter[str]
-    primary: Counter[str]
-    secondary: Counter[str]
-    tertiary: Counter[str]
+def percentile(values: list[int], ratio: float) -> float:
+    if not values:
+        return 0.0
+
+    ordered = sorted(values)
+    if len(ordered) == 1:
+        return float(ordered[0])
+
+    index = (len(ordered) - 1) * ratio
+    lower_index = floor(index)
+    upper_index = ceil(index)
+    lower_value = ordered[lower_index]
+    upper_value = ordered[upper_index]
+
+    if lower_index == upper_index:
+        return float(lower_value)
+
+    fraction = index - lower_index
+    return lower_value + (upper_value - lower_value) * fraction
 
 
-def read_dataset(
-    file_name: str,
-    primary_column: str,
-    secondary_column: str,
-    tertiary_column: str,
-) -> DatasetStats:
-    rows = 0
-    total = 0
-    dates: list[str] = []
+def forecast_series(values: list[int], method: str) -> int:
+    history = values[:] if values else [0]
+    length = len(history)
+
+    if method == "last":
+        return history[-1]
+
+    if method == "ma3":
+        return round(mean(history[-min(3, length) :]))
+
+    if method == "ma6":
+        return round(mean(history[-min(6, length) :]))
+
+    if method == "wma3":
+        window = history[-3:] if length >= 3 else history
+        weights = [1, 2, 3][-len(window) :]
+        total_weight = sum(weights)
+        return round(sum(value * weight for value, weight in zip(window, weights)) / total_weight)
+
+    if method == "seasonal12":
+        if length >= 12:
+            return history[-12]
+        return round(mean(history[-min(3, length) :]))
+
+    if method == "blend":
+        recent = forecast_series(history, "wma3")
+        if length >= 12:
+            seasonal = history[-12]
+            return round(recent * 0.6 + seasonal * 0.4)
+        return recent
+
+    raise ValueError(f"Metodo no soportado: {method}")
+
+
+def smape(predicted: int, observed: int) -> float:
+    denominator = (abs(predicted) + abs(observed)) / 2
+    if denominator == 0:
+        return 0.0
+    return abs(predicted - observed) / denominator
+
+
+def evaluate_method(values: list[int], method: str) -> float | None:
+    minimum_history = 12 if method in {"seasonal12", "blend"} else 3
+    if len(values) <= minimum_history:
+        return None
+
+    errors: list[float] = []
+    for index in range(minimum_history, len(values)):
+        predicted = forecast_series(values[:index], method)
+        observed = values[index]
+        errors.append(smape(predicted, observed))
+
+    return max(0.0, 100 - (sum(errors) / len(errors) * 100))
+
+
+def choose_model(values: list[int]) -> tuple[str, float]:
+    candidates: list[tuple[float, str]] = []
+    for method in ("last", "ma3", "ma6", "wma3", "seasonal12", "blend"):
+        score = evaluate_method(values, method)
+        if score is not None:
+            candidates.append((score, method))
+
+    if not candidates:
+        return "ma3", 0.0
+
+    score, method = max(candidates, key=lambda item: item[0])
+    return method, round(score, 1)
+
+
+def detect_partial_tail(series: list[tuple[str, int]]) -> tuple[list[tuple[str, int]], bool]:
+    if len(series) < 6:
+        return series, False
+
+    values = [value for _, value in series]
+    reference = mean(values[-4:-1])
+    if reference <= 0:
+        return series, False
+
+    if values[-1] < reference * 0.35:
+        return series[:-1], True
+
+    return series, False
+
+
+def change_ratio(values: list[int]) -> float:
+    if len(values) >= 6:
+        recent = mean(values[-3:])
+        previous = mean(values[-6:-3])
+    elif len(values) >= 4:
+        recent = mean(values[-2:])
+        previous = mean(values[:-2])
+    elif len(values) >= 2:
+        recent = values[-1]
+        previous = mean(values[:-1])
+    else:
+        return 0.0
+
+    if previous == 0:
+        return 100.0 if recent > 0 else 0.0
+
+    return ((recent - previous) / previous) * 100
+
+
+def direction_from_change(change: float) -> str:
+    if change > 5:
+        return "up"
+    if change < -5:
+        return "down"
+    return "stable"
+
+
+def confidence_level(accuracy: float, months: int) -> str:
+    if months >= 24 and accuracy >= 75:
+        return "high"
+    if months >= 12 and accuracy >= 60:
+        return "medium"
+    return "low"
+
+
+def risk_level(forecast_value: int, values: list[int], change: float) -> str:
+    upper_band = percentile(values, 0.75)
+    mid_band = percentile(values, 0.45)
+
+    if forecast_value >= upper_band or change >= 12:
+        return "high"
+    if forecast_value >= mid_band or change >= -5:
+        return "medium"
+    return "low"
+
+
+def load_rows(file_name: str) -> list[dict[str, object]]:
+    rows: list[dict[str, object]] = []
+    with (CLEAN_DIR / file_name).open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        for raw_row in reader:
+            date_value = datetime.fromisoformat(str(raw_row["fecha"]))
+            normalized_row: dict[str, object] = {
+                "cantidad": int(raw_row["cantidad"]),
+                "fecha": date_value,
+                "period": date_value.strftime("%Y-%m"),
+                "year": date_value.year,
+            }
+            for key, value in raw_row.items():
+                if key in {"cantidad", "fecha"}:
+                    continue
+                normalized_row[key] = normalize_text(value or "")
+            rows.append(normalized_row)
+
+    return rows
+
+
+def build_stats(rows: list[dict[str, object]], config: DatasetConfig) -> DatasetStats:
+    dates = [row["fecha"] for row in rows]
+    rows_count = len(rows)
+    total = sum(int(row["cantidad"]) for row in rows)
     by_year: Counter[int] = Counter()
-    by_month: Counter[int] = Counter()
+    by_period: Counter[str] = Counter()
     departments: Counter[str] = Counter()
     municipalities: Counter[str] = Counter()
     primary: Counter[str] = Counter()
     secondary: Counter[str] = Counter()
     tertiary: Counter[str] = Counter()
+    quaternary: Counter[str] = Counter()
 
-    with (CLEAN_DIR / file_name).open(encoding="utf-8", newline="") as handle:
-        reader = csv.DictReader(handle)
-        for row in reader:
-            rows += 1
-            quantity = int(row["cantidad"])
-            total += quantity
-
-            current_date = row["FECHA"]
-            dates.append(current_date)
-            year = int(row["ANO"])
-            month = int(row["MES"])
-            by_year[year] += quantity
-            by_month[month] += quantity
-
-            departments[fix_text(row["departamento"])] += quantity
-            municipalities[fix_text(row["municipio"])] += quantity
-            primary[fix_text(row[primary_column])] += quantity
-            secondary[fix_text(row[secondary_column])] += quantity
-            tertiary[fix_text(row[tertiary_column])] += quantity
+    for row in rows:
+        quantity = int(row["cantidad"])
+        by_year[int(row["year"])] += quantity
+        by_period[str(row["period"])] += quantity
+        departments[str(row["departamento"])] += quantity
+        municipalities[str(row["municipio"])] += quantity
+        primary[str(row[config.primary_field])] += quantity
+        secondary[str(row[config.secondary_field])] += quantity
+        tertiary[str(row[config.tertiary_field])] += quantity
+        quaternary[str(row[config.quaternary_field])] += quantity
 
     return DatasetStats(
-        rows=rows,
+        rows_count=rows_count,
         total=total,
-        start_date=min(dates),
-        end_date=max(dates),
+        start_date=min(dates).date().isoformat(),
+        end_date=max(dates).date().isoformat(),
         by_year=by_year,
-        by_month=by_month,
+        by_period=by_period,
         departments=departments,
         municipalities=municipalities,
         primary=primary,
         secondary=secondary,
         tertiary=tertiary,
+        quaternary=quaternary,
     )
 
 
-def top_share(counter: Counter[str], total: int) -> tuple[str, int, str]:
-    label, value = counter.most_common(1)[0]
-    return label, value, format_pct(value / total * 100)
+def top_item(counter: Counter[str]) -> tuple[str, int]:
+    if not counter:
+        return "NO REPORTADO", 0
+    return counter.most_common(1)[0]
 
 
-def top_five_share(counter: Counter[str], total: int) -> str:
-    total_top_five = sum(value for _, value in counter.most_common(5))
-    return format_pct(total_top_five / total * 100)
+def share_text(value: int, total: int) -> str:
+    if total == 0:
+        return "0.0%"
+    return format_pct((value / total) * 100)
 
 
-def build_homicidios_report() -> tuple[dict[str, object], dict[str, object]]:
-    stats = read_dataset("homicidios.csv", "arma_medio", "_modalidad_presunta", "sexo")
-    top_department, top_department_value, top_department_share = top_share(
-        stats.departments, stats.total
-    )
-    top_municipality, top_municipality_value, top_municipality_share = top_share(
-        stats.municipalities, stats.total
-    )
-    top_weapon, top_weapon_value, top_weapon_share = top_share(stats.primary, stats.total)
-    top_modality, _, top_modality_share = top_share(stats.secondary, stats.total)
-    top_sex, _, top_sex_share = top_share(stats.tertiary, stats.total)
-    urban_share = format_pct(stats.by_year.total() and (stats.secondary.total() or 0))
+def build_summary_report(
+    key: str,
+    stats: DatasetStats,
+) -> tuple[dict[str, object], dict[str, object]]:
+    top_department, top_department_total = top_item(stats.departments)
+    top_municipality, top_municipality_total = top_item(stats.municipalities)
+    top_primary, top_primary_total = top_item(stats.primary)
+    top_secondary, top_secondary_total = top_item(stats.secondary)
+    top_tertiary, top_tertiary_total = top_item(stats.tertiary)
+    top_quaternary, top_quaternary_total = top_item(stats.quaternary)
+    peak_period, _peak_total = max(stats.by_period.items(), key=lambda item: item[1])
+    peak_year, _peak_year_total = max(stats.by_year.items(), key=lambda item: item[1])
 
-    zone_counter = Counter()
-    with (CLEAN_DIR / "homicidios.csv").open(encoding="utf-8", newline="") as handle:
-        for row in csv.DictReader(handle):
-            zone_counter[fix_text(row["zona"])] += int(row["cantidad"])
-    top_zone, _, top_zone_share = top_share(zone_counter, stats.total)
+    if key == "homicidios":
+        es = {
+            "summary": (
+                f"La base de homicidios consolida {format_int(stats.total, 'es')} casos en "
+                f"{format_int(stats.rows_count, 'es')} registros. "
+                f"Predomina {display_label(top_primary).lower()} ({share_text(top_primary_total, stats.total)}) y "
+                f"la mayor concentracion territorial se ubica en {display_label(top_department)} "
+                f"({share_text(top_department_total, stats.total)})."
+            ),
+            "metrics": [
+                {"label": "Casos consolidados", "value": format_int(stats.total, "es")},
+                {
+                    "label": "Foco principal",
+                    "value": f"{display_label(top_department)} {share_text(top_department_total, stats.total)}",
+                },
+                {
+                    "label": "Patron dominante",
+                    "value": f"{display_label(top_primary)} {share_text(top_primary_total, stats.total)}",
+                },
+            ],
+            "findings": [
+                {
+                    "title": "Concentracion territorial",
+                    "description": (
+                        f"{display_label(top_department)} lidera con {format_int(top_department_total, 'es')} casos "
+                        f"({share_text(top_department_total, stats.total)}), mientras {display_label(top_municipality)} "
+                        f"aparece como el principal municipio con {format_int(top_municipality_total, 'es')} registros."
+                    ),
+                },
+                {
+                    "title": "Patron operativo",
+                    "description": (
+                        f"{display_label(top_primary)} explica {share_text(top_primary_total, stats.total)} del total. "
+                        f"El comportamiento tambien se inclina hacia {display_label(top_quaternary).lower()} "
+                        f"({share_text(top_quaternary_total, stats.total)})."
+                    ),
+                },
+                {
+                    "title": "Detalle reportado",
+                    "description": (
+                        f"La modalidad {display_label(top_secondary).lower()} concentra "
+                        f"{share_text(top_secondary_total, stats.total)} y la victimizacion se mantiene "
+                        f"principalmente en {display_label(top_tertiary).lower()} "
+                        f"({share_text(top_tertiary_total, stats.total)})."
+                    ),
+                },
+            ],
+            "actions": [
+                {
+                    "title": "Despliegue focalizado",
+                    "description": (
+                        f"Conviene concentrar seguimiento institucional en {display_label(top_department)} y "
+                        f"{display_label(top_municipality)}, porque ahi se sostiene el mayor peso observado."
+                    ),
+                },
+                {
+                    "title": "Respuesta por patron dominante",
+                    "description": (
+                        f"La planeacion operativa gana precision cuando se parte de {display_label(top_primary)} y "
+                        f"de la caracterizacion disponible en {display_label(top_secondary).lower()}."
+                    ),
+                },
+            ],
+            "coverageNote": (
+                f"Base IA: {format_int(stats.rows_count, 'es')} registros y {format_int(stats.total, 'es')} casos. "
+                "La lectura combina territorio, patron operativo y perfil reportado para orientar seguimiento."
+            ),
+        }
 
-    top_year, top_year_value = stats.by_year.most_common(1)[0]
-    peak_month, peak_month_value = stats.by_month.most_common(1)[0]
-    top_five_departments_share = top_five_share(stats.departments, stats.total)
+        en = {
+            "summary": (
+                f"The homicide base consolidates {format_int(stats.total, 'en')} cases across "
+                f"{format_int(stats.rows_count, 'en')} records. "
+                f"{translate_common_en(top_primary)} leads with {share_text(top_primary_total, stats.total)}, and "
+                f"the strongest territorial concentration appears in {display_label(top_department)} "
+                f"({share_text(top_department_total, stats.total)})."
+            ),
+            "metrics": [
+                {"label": "Consolidated cases", "value": format_int(stats.total, "en")},
+                {
+                    "label": "Main hotspot",
+                    "value": f"{display_label(top_department)} {share_text(top_department_total, stats.total)}",
+                },
+                {
+                    "label": "Dominant pattern",
+                    "value": f"{translate_common_en(top_primary)} {share_text(top_primary_total, stats.total)}",
+                },
+            ],
+            "findings": [
+                {
+                    "title": "Territorial concentration",
+                    "description": (
+                        f"{display_label(top_department)} leads with {format_int(top_department_total, 'en')} cases "
+                        f"({share_text(top_department_total, stats.total)}), while {display_label(top_municipality)} "
+                        f"is the main municipality with {format_int(top_municipality_total, 'en')} records."
+                    ),
+                },
+                {
+                    "title": "Operational pattern",
+                    "description": (
+                        f"{translate_common_en(top_primary)} explains {share_text(top_primary_total, stats.total)} of the total. "
+                        f"The behavior also leans toward {translate_common_en(top_quaternary).lower()} areas "
+                        f"({share_text(top_quaternary_total, stats.total)})."
+                    ),
+                },
+                {
+                    "title": "Reported detail",
+                    "description": (
+                        f"{translate_common_en(top_secondary)} concentrates {share_text(top_secondary_total, stats.total)}, "
+                        f"and victimization remains mainly {translate_common_en(top_tertiary).lower()} "
+                        f"({share_text(top_tertiary_total, stats.total)})."
+                    ),
+                },
+            ],
+            "actions": [
+                {
+                    "title": "Focused deployment",
+                    "description": (
+                        f"Institutional monitoring should concentrate on {display_label(top_department)} and "
+                        f"{display_label(top_municipality)}, because that is where the strongest observed weight remains."
+                    ),
+                },
+                {
+                    "title": "Response by dominant pattern",
+                    "description": (
+                        f"Operational planning becomes more precise when it starts from {translate_common_en(top_primary)} "
+                        f"and from the available characterization in {translate_common_en(top_secondary).lower()}."
+                    ),
+                },
+            ],
+            "coverageNote": (
+                f"AI base: {format_int(stats.rows_count, 'en')} records and {format_int(stats.total, 'en')} cases. "
+                "The reading combines territory, operational pattern and reported profile to support monitoring."
+            ),
+        }
+        return es, en
+
+    if key == "sexuales":
+        es = {
+            "summary": (
+                f"La base de delitos sexuales consolida {format_int(stats.total, 'es')} casos en "
+                f"{format_int(stats.rows_count, 'es')} registros. "
+                f"Bogota concentra {share_text(top_department_total, stats.total)} del total y el hecho dominante es "
+                f"{display_label(top_primary).lower()} ({share_text(top_primary_total, stats.total)})."
+            ),
+            "metrics": [
+                {"label": "Casos consolidados", "value": format_int(stats.total, "es")},
+                {
+                    "label": "Foco principal",
+                    "value": f"{display_label(top_department)} {share_text(top_department_total, stats.total)}",
+                },
+                {
+                    "label": "Delito dominante",
+                    "value": f"{share_text(top_primary_total, stats.total)} del total",
+                },
+            ],
+            "findings": [
+                {
+                    "title": "Concentracion territorial",
+                    "description": (
+                        f"{display_label(top_department)} lidera con {format_int(top_department_total, 'es')} casos y "
+                        f"{display_label(top_municipality)} concentra la mayor carga municipal."
+                    ),
+                },
+                {
+                    "title": "Perfil de victimizacion",
+                    "description": (
+                        f"{display_label(top_secondary)} representa {share_text(top_secondary_total, stats.total)} y el grupo "
+                        f"{display_label(top_tertiary).lower()} aporta {share_text(top_tertiary_total, stats.total)}."
+                    ),
+                },
+                {
+                    "title": "Calidad del registro",
+                    "description": (
+                        f"La variable {display_label(top_quaternary).lower()} domina "
+                        f"{share_text(top_quaternary_total, stats.total)} de la base, por lo que la lectura depende mas "
+                        "del tipo penal y del territorio."
+                    ),
+                },
+            ],
+            "actions": [
+                {
+                    "title": "Seguimiento por perfil afectado",
+                    "description": (
+                        "Conviene revisar adultos, adolescentes y menores por separado para no mezclar dinamicas de riesgo."
+                    ),
+                },
+                {
+                    "title": "Focalizacion territorial",
+                    "description": (
+                        f"La lectura institucional debe sostenerse sobre {display_label(top_department)} y "
+                        f"{display_label(top_municipality)}, por ser los puntos con mayor carga observada."
+                    ),
+                },
+            ],
+            "coverageNote": (
+                f"Base IA: {format_int(stats.rows_count, 'es')} registros y {format_int(stats.total, 'es')} casos. "
+                "La lectura combina territorio, delito y perfil poblacional para orientar seguimiento."
+            ),
+        }
+
+        en = {
+            "summary": (
+                f"The sexual crimes base consolidates {format_int(stats.total, 'en')} cases across "
+                f"{format_int(stats.rows_count, 'en')} records. "
+                f"Bogota holds {share_text(top_department_total, stats.total)} of the total, and the dominant offense is "
+                f"{display_label(top_primary).lower()} ({share_text(top_primary_total, stats.total)})."
+            ),
+            "metrics": [
+                {"label": "Consolidated cases", "value": format_int(stats.total, "en")},
+                {
+                    "label": "Main hotspot",
+                    "value": f"{display_label(top_department)} {share_text(top_department_total, stats.total)}",
+                },
+                {
+                    "label": "Dominant offense",
+                    "value": f"{share_text(top_primary_total, stats.total)} of the total",
+                },
+            ],
+            "findings": [
+                {
+                    "title": "Territorial concentration",
+                    "description": (
+                        f"{display_label(top_department)} leads with {format_int(top_department_total, 'en')} cases, and "
+                        f"{display_label(top_municipality)} holds the strongest municipal load."
+                    ),
+                },
+                {
+                    "title": "Victim profile",
+                    "description": (
+                        f"{translate_common_en(top_secondary)} represents {share_text(top_secondary_total, stats.total)}, and the "
+                        f"{translate_common_en(top_tertiary).lower()} group contributes {share_text(top_tertiary_total, stats.total)}."
+                    ),
+                },
+                {
+                    "title": "Record quality",
+                    "description": (
+                        f"{translate_common_en(top_quaternary)} dominates {share_text(top_quaternary_total, stats.total)} of the base, "
+                        "so interpretation depends more on offense type and territory."
+                    ),
+                },
+            ],
+            "actions": [
+                {
+                    "title": "Monitoring by affected profile",
+                    "description": (
+                        "Adults, teenagers and minors should be reviewed separately to avoid flattening different risk patterns."
+                    ),
+                },
+                {
+                    "title": "Territorial targeting",
+                    "description": (
+                        f"Institutional reading should stay focused on {display_label(top_department)} and "
+                        f"{display_label(top_municipality)}, because they carry the strongest observed load."
+                    ),
+                },
+            ],
+            "coverageNote": (
+                f"AI base: {format_int(stats.rows_count, 'en')} records and {format_int(stats.total, 'en')} cases. "
+                "The reading combines territory, offense type and population profile to support monitoring."
+            ),
+        }
+        return es, en
 
     es = {
         "summary": (
-            f"La lectura asistida sobre homicidios muestra {format_int_es(stats.total)} casos "
-            f"acumulados en {format_int_es(stats.rows)} registros, con corte entre {stats.start_date} "
-            f"y {stats.end_date}. El patron dominante combina {top_weapon.lower()} "
-            f"({top_weapon_share}), concentracion territorial en {top_department.title()} "
-            f"({top_department_share}) y una victimizacion principalmente {top_sex.lower()} "
-            f"({top_sex_share})."
+            f"La base de hurtos de vehiculos consolida {format_int(stats.total, 'es')} casos en "
+            f"{format_int(stats.rows_count, 'es')} registros. "
+            f"El mayor peso territorial esta en {display_label(top_department)} "
+            f"({share_text(top_department_total, stats.total)}) y la modalidad dominante es "
+            f"{display_label(top_primary).lower()} ({share_text(top_primary_total, stats.total)})."
         ),
         "metrics": [
-            {"label": "Cobertura temporal", "value": f"{stats.start_date} a {stats.end_date}"},
-            {"label": "Foco principal", "value": f"{top_department.title()} {top_department_share}"},
-            {"label": "Patron dominante", "value": f"{top_weapon.title()} {top_weapon_share}"},
+            {"label": "Casos consolidados", "value": format_int(stats.total, "es")},
+            {
+                "label": "Foco principal",
+                "value": f"{display_label(top_department)} {share_text(top_department_total, stats.total)}",
+            },
+            {
+                "label": "Modalidad dominante",
+                "value": f"{share_text(top_primary_total, stats.total)} del total",
+            },
         ],
         "findings": [
             {
-                "title": "Concentracion territorial",
+                "title": "Concentracion reciente",
                 "description": (
-                    f"{top_department.title()} aporta {top_department_share} del total y los cinco "
-                    f"primeros departamentos concentran {top_five_departments_share}. "
-                    f"{top_municipality.title()} lidera a nivel municipal con "
-                    f"{format_int_es(top_municipality_value)} casos ({top_municipality_share})."
+                    f"{display_label(top_department)} lidera con {format_int(top_department_total, 'es')} casos y "
+                    f"{display_label(top_municipality)} aparece como el principal municipio del corte."
                 ),
             },
             {
-                "title": "Patron operativo dominante",
+                "title": "Patron dominante",
                 "description": (
-                    f"{top_weapon.title()} explica {top_weapon_share} de los casos y la ocurrencia "
-                    f"se inclina hacia zona {top_zone.lower()} ({top_zone_share}). El mes de mayor "
-                    f"peso en el corte fue {format_month(peak_month)} con {format_int_es(peak_month_value)} casos."
+                    f"{display_label(top_primary)} explica {share_text(top_primary_total, stats.total)} del total. "
+                    f"El perfil mas frecuente sigue siendo {display_label(top_secondary).lower()} "
+                    f"({share_text(top_secondary_total, stats.total)}) y {display_label(top_tertiary).lower()} "
+                    f"({share_text(top_tertiary_total, stats.total)})."
                 ),
             },
             {
-                "title": "Brecha de caracterizacion",
+                "title": "Condiciones del hecho",
                 "description": (
-                    f"La modalidad {top_modality.lower()} representa {top_modality_share}, lo que "
-                    "reduce el nivel de detalle disponible para interpretar motivaciones y dinamicas del hecho."
+                    f"En armas o medios domina {display_label(top_quaternary).lower()} "
+                    f"({share_text(top_quaternary_total, stats.total)}), lo que sirve para focalizar consultas operativas."
                 ),
             },
         ],
         "actions": [
             {
-                "title": "Priorizar focos territoriales",
+                "title": "Seguimiento territorial",
                 "description": (
-                    f"Antioquia, Valle del Cauca y Bogota D.C. aparecen como el nucleo mas fuerte del corte, "
-                    "por lo que conviene enfocar comparacion operativa y seguimiento mensual en esos territorios."
+                    f"Conviene reforzar seguimiento sobre {display_label(top_department)} y "
+                    f"{display_label(top_municipality)}, porque concentran la mayor carga observada."
                 ),
             },
             {
-                "title": "Mejorar completitud del registro",
+                "title": "Respuesta por modalidad",
                 "description": (
-                    "La modalidad reportada necesita mayor completitud para enriquecer la lectura de homicidios, "
-                    "especialmente si se quiere cruzar con arma, zona y perfil de victima."
+                    "La lectura mejora cuando se diferencian las modalidades de hurto para no mezclar dinamicas distintas."
                 ),
             },
         ],
         "coverageNote": (
-            f"Base IA: {format_int_es(stats.rows)} registros y {format_int_es(stats.total)} casos. "
-            f"El corte disponible se concentra en {top_year} y alcanza su mayor volumen mensual en {format_month(peak_month)}."
+            f"Base IA: {format_int(stats.rows_count, 'es')} registros y {format_int(stats.total, 'es')} casos. "
+            "La lectura combina territorio, modalidad y perfil afectado para orientar seguimiento."
         ),
     }
 
     en = {
         "summary": (
-            f"The assisted reading for homicides shows {format_int_en(stats.total)} accumulated cases "
-            f"across {format_int_en(stats.rows)} records, covering {stats.start_date} to {stats.end_date}. "
-            f"The dominant pattern combines {translate_common_en(top_weapon)} ({top_weapon_share}), territorial concentration "
-            f"in {top_department.title()} ({top_department_share}) and mainly {translate_common_en(top_sex)} victims ({top_sex_share})."
+            f"The vehicle theft base consolidates {format_int(stats.total, 'en')} cases across "
+            f"{format_int(stats.rows_count, 'en')} records. "
+            f"The strongest territorial weight sits in {display_label(top_department)} "
+            f"({share_text(top_department_total, stats.total)}), and the dominant modality is "
+            f"{translate_common_en(top_primary).lower()} ({share_text(top_primary_total, stats.total)})."
         ),
         "metrics": [
-            {"label": "Time coverage", "value": f"{stats.start_date} to {stats.end_date}"},
-            {"label": "Main hotspot", "value": f"{top_department.title()} {top_department_share}"},
-            {"label": "Dominant pattern", "value": f"{translate_common_en(top_weapon).title()} {top_weapon_share}"},
+            {"label": "Consolidated cases", "value": format_int(stats.total, "en")},
+            {
+                "label": "Main hotspot",
+                "value": f"{display_label(top_department)} {share_text(top_department_total, stats.total)}",
+            },
+            {
+                "label": "Dominant modality",
+                "value": f"{share_text(top_primary_total, stats.total)} of the total",
+            },
         ],
         "findings": [
             {
-                "title": "Territorial concentration",
+                "title": "Recent concentration",
                 "description": (
-                    f"{top_department.title()} contributes {top_department_share} of the total and the top "
-                    f"five departments account for {top_five_departments_share}. {top_municipality.title()} "
-                    f"leads at municipality level with {format_int_en(top_municipality_value)} cases "
-                    f"({top_municipality_share})."
+                    f"{display_label(top_department)} leads with {format_int(top_department_total, 'en')} cases, and "
+                    f"{display_label(top_municipality)} stands out as the main municipality in the cut."
                 ),
             },
             {
-                "title": "Dominant operational pattern",
+                "title": "Dominant pattern",
                 "description": (
-                    f"{translate_common_en(top_weapon).title()} explains {top_weapon_share} of cases and the events lean toward "
-                    f"{translate_common_en(top_zone)} areas ({top_zone_share}). The heaviest month in the cut was "
-                    f"{format_month(peak_month)} with {format_int_en(peak_month_value)} cases."
+                    f"{translate_common_en(top_primary)} explains {share_text(top_primary_total, stats.total)} of the total. "
+                    f"The most frequent profile remains {translate_common_en(top_secondary).lower()} "
+                    f"({share_text(top_secondary_total, stats.total)}) and {translate_common_en(top_tertiary).lower()} "
+                    f"({share_text(top_tertiary_total, stats.total)})."
                 ),
             },
             {
-                "title": "Characterization gap",
+                "title": "Event conditions",
                 "description": (
-                    f"{translate_common_en(top_modality).title()} represents {top_modality_share}, reducing the detail available "
-                    "to interpret motivations and operational dynamics behind the events."
+                    f"The leading weapon or method is {translate_common_en(top_quaternary).lower()} "
+                    f"({share_text(top_quaternary_total, stats.total)}), which helps focus operational queries."
                 ),
             },
         ],
         "actions": [
             {
-                "title": "Prioritize territorial hotspots",
+                "title": "Territorial monitoring",
                 "description": (
-                    "Antioquia, Valle del Cauca and Bogota D.C. form the strongest cluster in the cut, "
-                    "so they should be the first comparison axis for operational review and follow-up."
+                    f"Monitoring should reinforce {display_label(top_department)} and "
+                    f"{display_label(top_municipality)}, because they hold the strongest observed load."
                 ),
             },
             {
-                "title": "Improve field completeness",
+                "title": "Response by modality",
                 "description": (
-                    "Reported modality needs better completion to enrich homicide interpretation, "
-                    "especially when crossing weapon, area and victim profile."
+                    "Reading improves when theft modalities are separated instead of mixing different operating patterns."
                 ),
             },
         ],
         "coverageNote": (
-            f"AI base: {format_int_en(stats.rows)} records and {format_int_en(stats.total)} cases. "
-            f"The available cut is concentrated in {top_year} and reaches its highest monthly volume in {format_month(peak_month)}."
+            f"AI base: {format_int(stats.rows_count, 'en')} records and {format_int(stats.total, 'en')} cases. "
+            "The reading combines territory, modality and affected profile to support monitoring."
         ),
     }
     return es, en
 
 
-def build_delitos_report() -> tuple[dict[str, object], dict[str, object]]:
-    stats = read_dataset("delitos_sexuales.csv", "delito", "genero", "grupo_etario")
-    top_department, top_department_value, top_department_share = top_share(
-        stats.departments, stats.total
-    )
-    top_municipality, top_municipality_value, top_municipality_share = top_share(
-        stats.municipalities, stats.total
-    )
-    top_offense, _, top_offense_share = top_share(stats.primary, stats.total)
-    top_gender, _, top_gender_share = top_share(stats.secondary, stats.total)
-    top_age_group, _, top_age_group_share = top_share(stats.tertiary, stats.total)
-    top_year, top_year_value = stats.by_year.most_common(1)[0]
-    peak_month, peak_month_value = stats.by_month.most_common(1)[0]
-    top_five_departments_share = top_five_share(stats.departments, stats.total)
+def build_predictive_snapshot(
+    territory_rows: list[dict[str, object]],
+    territory_id: str,
+    territory_label_es: str,
+    territory_label_en: str,
+    config: DatasetConfig,
+) -> tuple[dict[str, object], dict[str, object]]:
+    period_counter: Counter[str] = Counter()
+    total = 0
+    primary_counter: Counter[str] = Counter()
+    department_counter: Counter[str] = Counter()
+    municipality_counter: Counter[str] = Counter()
 
-    age_counter = Counter()
-    weapons_counter = Counter()
-    with (CLEAN_DIR / "delitos_sexuales.csv").open(encoding="utf-8", newline="") as handle:
-        for row in csv.DictReader(handle):
-            quantity = int(row["cantidad"])
-            age_counter[fix_text(row["grupo_etario"])] += quantity
-            weapons_counter[fix_text(row["armas_medios"])] += quantity
+    for row in territory_rows:
+        quantity = int(row["cantidad"])
+        total += quantity
+        period_counter[str(row["period"])] += quantity
+        primary_counter[str(row[config.primary_field])] += quantity
+        municipality_counter[str(row["municipio"])] += quantity
+        if territory_id == "national":
+            department_counter[str(row["departamento"])] += quantity
 
-    minors_and_teens = age_counter["MENORES"] + age_counter["ADOLESCENTES"]
-    minors_and_teens_share = format_pct(minors_and_teens / stats.total * 100)
-    no_weapon_report_share = format_pct(
-        weapons_counter["NO REPORTADO"] / stats.total * 100
+    ordered_periods = month_sequence(min(period_counter), max(period_counter))
+    complete_series = [(period, period_counter.get(period, 0)) for period in ordered_periods]
+    usable_series, trimmed_tail = detect_partial_tail(complete_series)
+    usable_values = [value for _, value in usable_series]
+    usable_periods = [period for period, _ in usable_series]
+
+    model_name, accuracy_score = choose_model(usable_values)
+    forecast_value = forecast_series(usable_values, model_name)
+    forecast_period = next_period(usable_periods[-1])
+    recent_change = round(change_ratio(usable_values), 1)
+    direction = direction_from_change(recent_change)
+    confidence = confidence_level(accuracy_score, len(usable_values))
+    risk = risk_level(forecast_value, usable_values, recent_change)
+    confidence_es = {"high": "alta", "medium": "media", "low": "baja"}[confidence]
+    confidence_en = {"high": "high", "medium": "medium", "low": "low"}[confidence]
+    top_factor, top_factor_total = top_item(primary_counter)
+    top_factor_share = share_text(top_factor_total, total)
+
+    if territory_id == "national":
+        hotspot_name, hotspot_total = top_item(department_counter)
+        hotspot_es = f"Departamento: {display_label(hotspot_name)} ({share_text(hotspot_total, total)})"
+        hotspot_en = f"Department: {display_label(hotspot_name)} ({share_text(hotspot_total, total)})"
+        hotspot_target_es = display_label(hotspot_name)
+        hotspot_target_en = display_label(hotspot_name)
+    else:
+        hotspot_name, hotspot_total = top_item(municipality_counter)
+        hotspot_es = f"Municipio: {display_label(hotspot_name)} ({share_text(hotspot_total, total)})"
+        hotspot_en = f"Municipality: {display_label(hotspot_name)} ({share_text(hotspot_total, total)})"
+        hotspot_target_es = display_label(hotspot_name)
+        hotspot_target_en = display_label(hotspot_name)
+
+    factor_es = f"{display_label(top_factor)} ({top_factor_share})"
+    factor_en = f"{translate_common_en(top_factor)} ({top_factor_share})"
+    trimmed_note_es = (
+        " El cierre mas reciente luce parcial y el pronostico toma como base la ultima ventana completa."
+        if trimmed_tail
+        else ""
+    )
+    trimmed_note_en = (
+        " The latest close looks partial, so the forecast uses the last complete window."
+        if trimmed_tail
+        else ""
     )
 
-    es = {
-        "summary": (
-            f"La lectura asistida de delitos sexuales identifica {format_int_es(stats.total)} casos en "
-            f"{format_int_es(stats.rows)} registros entre {stats.start_date} y {stats.end_date}. "
-            f"El pico se ubica en {top_year} con {format_int_es(top_year_value)} casos, con mayor peso "
-            f"territorial en {top_department.title()} ({top_department_share}) y una victimizacion "
-            f"principalmente {top_gender.lower()} ({top_gender_share})."
-        ),
-        "metrics": [
-            {"label": "Cobertura temporal", "value": f"{stats.start_date} a {stats.end_date}"},
-            {"label": "Foco principal", "value": f"{top_department.title()} {top_department_share}"},
-            {"label": "Delito dominante", "value": f"{top_offense_share} del total"},
-        ],
-        "findings": [
-            {
-                "title": "Concentracion temporal y territorial",
-                "description": (
-                    f"El ano {top_year} concentra {format_pct(top_year_value / stats.total * 100)} del total. "
-                    f"{top_department.title()} lidera con {format_int_es(top_department_value)} casos "
-                    f"({top_department_share}) y {top_municipality.title()} concentra por si sola {top_municipality_share}."
-                ),
-            },
-            {
-                "title": "Perfil de victimizacion",
-                "description": (
-                    f"{top_gender.title()} representa {top_gender_share} y el grupo {top_age_group.lower()} "
-                    f"aporta {top_age_group_share}. Si se agrupan menores y adolescentes, el peso conjunto llega a "
-                    f"{minors_and_teens_share}, lo que exige lectura diferenciada por ciclo de vida."
-                ),
-            },
-            {
-                "title": "Limite de calidad del registro",
-                "description": (
-                    f"La variable armas o medios aparece como no reportada en {no_weapon_report_share} de la base, "
-                    "por lo que la explicacion contextual del hecho depende mas del tipo penal y del perfil territorial."
-                ),
-            },
-        ],
-        "actions": [
-            {
-                "title": "Focalizar seguimiento territorial",
-                "description": (
-                    "Bogota, Valle y Santander deben ser el primer eje de seguimiento comparado por volumen y persistencia del registro."
-                ),
-            },
-            {
-                "title": "Separar lineas de atencion por edad",
-                "description": (
-                    "La mezcla entre adultos, menores y adolescentes sugiere construir consultas y alertas separadas para evitar lecturas planas."
-                ),
-            },
-        ],
-        "coverageNote": (
-            f"Base IA: {format_int_es(stats.rows)} registros y {format_int_es(stats.total)} casos. "
-            f"El mes de mayor carga fue {format_month(peak_month)} con {format_int_es(peak_month_value)} casos."
-        ),
+    if direction == "up":
+        pressure_text_es = f"El promedio reciente sube {format_pct(abs(recent_change))} frente a la ventana previa."
+        pressure_text_en = f"The recent average rises {format_pct(abs(recent_change))} versus the previous window."
+    elif direction == "down":
+        pressure_text_es = f"El promedio reciente baja {format_pct(abs(recent_change))} frente a la ventana previa."
+        pressure_text_en = f"The recent average falls {format_pct(abs(recent_change))} versus the previous window."
+    else:
+        pressure_text_es = "La presion reciente se mantiene estable frente a la ventana previa."
+        pressure_text_en = "Recent pressure remains stable versus the previous window."
+
+    last_observed = usable_values[-1]
+    chart_series = [
+        {"period": period, "value": value} for period, value in usable_series[-12:]
+    ]
+
+    recommendations_es = [
+        f"Priorizar seguimiento sobre {hotspot_target_es} en la siguiente ventana operativa, porque concentra la mayor carga del territorio seleccionado.",
+        f"Cruzar el pronostico con {config.factor_label_es.lower()} para validar si {display_label(top_factor)} sigue empujando el comportamiento esperado.",
+        f"Leer esta salida como orientacion operativa basada en comportamiento previo y no como calendario actual.{trimmed_note_es}",
+    ]
+    recommendations_en = [
+        f"Prioritize monitoring on {hotspot_target_en} during the next operating window, because it holds the largest load inside the selected territory.",
+        f"Cross the forecast with the {config.factor_label_en.lower()} to verify whether {translate_common_en(top_factor)} is still driving the expected behavior.",
+        f"Read this output as operational guidance based on previous behavior and not as the current calendar date.{trimmed_note_en}",
+    ]
+
+    forecast_answer_es = (
+        f"En la siguiente ventana operativa, el escenario base estima {format_int(forecast_value, 'es')} casos en {territory_label_es}. "
+        f"La lectura se apoya en el comportamiento reciente del territorio y se interpreta como siguiente corte esperado, no como fecha actual del calendario.{trimmed_note_es}"
+    )
+    pressure_answer_es = (
+        f"{pressure_text_es} La confiabilidad operativa del escenario actual es {confidence_es}."
+    )
+    focus_answer_es = (
+        f"El foco principal en {territory_label_es} sigue siendo {display_label(top_factor)}, mientras {hotspot_es} mantiene la mayor presion territorial."
+    )
+    action_answer_es = (
+        f"La accion mas util es reforzar seguimiento sobre {hotspot_target_es} y monitorear si {display_label(top_factor)} conserva su peso en la siguiente ventana operativa."
+    )
+
+    forecast_answer_en = (
+        f"In the next operating window, the baseline scenario estimates {format_int(forecast_value, 'en')} cases in {territory_label_en}. "
+        f"The reading is based on the territory's recent behavior and should be understood as the next expected cut, not as the current calendar date.{trimmed_note_en}"
+    )
+    pressure_answer_en = (
+        f"{pressure_text_en} Current operational confidence is {confidence_en}."
+    )
+    focus_answer_en = (
+        f"The main focus in {territory_label_en} remains {translate_common_en(top_factor)}, while {hotspot_en} keeps the strongest territorial pressure."
+    )
+    action_answer_en = (
+        f"The most useful action is to reinforce monitoring on {hotspot_target_en} and check whether {translate_common_en(top_factor)} keeps its weight through the next operating window."
+    )
+
+    common_payload = {
+        "id": territory_id,
+        "forecastPeriod": forecast_period,
+        "forecastValue": forecast_value,
+        "lastObservedValue": last_observed,
+        "changePct": recent_change,
+        "direction": direction,
+        "accuracyScore": accuracy_score,
+        "confidence": confidence,
+        "risk": risk,
+        "modelLabelEs": METHOD_LABELS["es"][model_name],
+        "modelLabelEn": METHOD_LABELS["en"][model_name],
+        "historyMonths": len(usable_values),
+        "series": chart_series,
     }
 
-    en = {
-        "summary": (
-            f"The assisted reading for sexual crimes identifies {format_int_en(stats.total)} cases across "
-            f"{format_int_en(stats.rows)} records between {stats.start_date} and {stats.end_date}. "
-            f"The peak occurs in {top_year} with {format_int_en(top_year_value)} cases, with the strongest "
-            f"territorial weight in {top_department.title()} ({top_department_share}) and mainly "
-            f"{translate_common_en(top_gender)} victims ({top_gender_share})."
-        ),
-        "metrics": [
-            {"label": "Time coverage", "value": f"{stats.start_date} to {stats.end_date}"},
-            {"label": "Main hotspot", "value": f"{top_department.title()} {top_department_share}"},
-            {"label": "Dominant offense", "value": f"{top_offense_share} of the total"},
-        ],
-        "findings": [
-            {
-                "title": "Temporal and territorial concentration",
-                "description": (
-                    f"The year {top_year} concentrates {format_pct(top_year_value / stats.total * 100)} of the total. "
-                    f"{top_department.title()} leads with {format_int_en(top_department_value)} cases "
-                    f"({top_department_share}) and {top_municipality.title()} alone accounts for {top_municipality_share}."
-                ),
-            },
-            {
-                "title": "Victim profile",
-                "description": (
-                    f"{translate_common_en(top_gender).title()} accounts for {top_gender_share} and the {translate_common_en(top_age_group)} group "
-                    f"adds {top_age_group_share}. When minors and teenagers are combined, their joint weight reaches "
-                    f"{minors_and_teens_share}, which calls for age-specific interpretation."
-                ),
-            },
-            {
-                "title": "Data quality limit",
-                "description": (
-                    f"The weapons or methods field is not reported in {no_weapon_report_share} of the dataset, "
-                    "so contextual interpretation depends more on offense type and territorial profile."
-                ),
-            },
-        ],
-        "actions": [
-            {
-                "title": "Focus territorial monitoring",
-                "description": (
-                    "Bogota, Valle and Santander should be the first comparison axis because of their weight and persistence in the records."
-                ),
-            },
-            {
-                "title": "Separate response lines by age",
-                "description": (
-                    "The mix of adults, minors and teenagers suggests building separate alerts and queries to avoid flat interpretation."
-                ),
-            },
-        ],
-        "coverageNote": (
-            f"AI base: {format_int_en(stats.rows)} records and {format_int_en(stats.total)} cases. "
-            f"The heaviest month was {format_month(peak_month)} with {format_int_en(peak_month_value)} cases."
-        ),
+    es_payload = {
+        **common_payload,
+        "label": territory_label_es,
+        "dominantFactor": factor_es,
+        "hotspot": hotspot_es,
+        "recommendations": recommendations_es,
+        "answers": {
+            "forecast": forecast_answer_es,
+            "pressure": pressure_answer_es,
+            "focus": focus_answer_es,
+            "action": action_answer_es,
+        },
     }
-    return es, en
+    en_payload = {
+        **common_payload,
+        "label": territory_label_en,
+        "dominantFactor": factor_en,
+        "hotspot": hotspot_en,
+        "recommendations": recommendations_en,
+        "answers": {
+            "forecast": forecast_answer_en,
+            "pressure": pressure_answer_en,
+            "focus": focus_answer_en,
+            "action": action_answer_en,
+        },
+    }
+    return es_payload, en_payload
 
 
-def build_hurtos_report() -> tuple[dict[str, object], dict[str, object]]:
-    stats = read_dataset("hurtos_personas.csv", "tipo_de_hurto", "genero", "grupo_etario")
-    top_department, top_department_value, top_department_share = top_share(
-        stats.departments, stats.total
+def build_predictive_report(
+    rows: list[dict[str, object]],
+    config: DatasetConfig,
+) -> tuple[dict[str, object], dict[str, object]]:
+    department_totals: Counter[str] = Counter()
+    for row in rows:
+        department_totals[str(row["departamento"])] += int(row["cantidad"])
+
+    ordered_departments = [department for department, _ in department_totals.most_common()]
+    territories_es: list[dict[str, object]] = []
+    territories_en: list[dict[str, object]] = []
+
+    national_es, national_en = build_predictive_snapshot(
+        territory_rows=rows,
+        territory_id="national",
+        territory_label_es="Nacional",
+        territory_label_en="National",
+        config=config,
     )
-    top_municipality, top_municipality_value, top_municipality_share = top_share(
-        stats.municipalities, stats.total
+    territories_es.append(national_es)
+    territories_en.append(national_en)
+
+    for department in ordered_departments:
+        territory_rows = [
+            row for row in rows if str(row["departamento"]) == department
+        ]
+        territory_id = department.lower().replace(" ", "-").replace(".", "").replace("/", "-")
+        territory_label = display_label(department)
+        territory_es, territory_en = build_predictive_snapshot(
+            territory_rows=territory_rows,
+            territory_id=territory_id,
+            territory_label_es=territory_label,
+            territory_label_en=territory_label,
+            config=config,
+        )
+        territories_es.append(territory_es)
+        territories_en.append(territory_en)
+
+    return (
+        {
+            "nextPeriod": str(territories_es[0]["forecastPeriod"]),
+            "territories": territories_es,
+        },
+        {
+            "nextPeriod": str(territories_en[0]["forecastPeriod"]),
+            "territories": territories_en,
+        },
     )
-    top_theft_type, top_theft_value, top_theft_share = top_share(stats.primary, stats.total)
-    top_gender, _, top_gender_share = top_share(stats.secondary, stats.total)
-    top_age_group, _, top_age_group_share = top_share(stats.tertiary, stats.total)
-    top_year, top_year_value = stats.by_year.most_common(1)[0]
-    peak_month, peak_month_value = stats.by_month.most_common(1)[0]
-    top_five_departments_share = top_five_share(stats.departments, stats.total)
 
-    weapons_counter = Counter()
-    with (CLEAN_DIR / "hurtos_personas.csv").open(encoding="utf-8", newline="") as handle:
-        for row in csv.DictReader(handle):
-            weapons_counter[fix_text(row["armas_medios"])] += int(row["cantidad"])
 
-    top_weapon, _, top_weapon_share = top_share(weapons_counter, stats.total)
-    years_2023_2025 = sum(stats.by_year[year] for year in (2023, 2024, 2025))
-    years_2023_2025_share = format_pct(years_2023_2025 / stats.total * 100)
-
-    es = {
-        "summary": (
-            f"La lectura asistida de hurtos de vehiculos registra {format_int_es(stats.total)} casos en "
-            f"{format_int_es(stats.rows)} eventos entre {stats.start_date} y {stats.end_date}. "
-            f"El mayor volumen aparece en {top_year} con {format_int_es(top_year_value)} casos, con foco "
-            f"territorial en {top_department.title()} ({top_department_share}) y dominio claro del "
-            f"{top_theft_type.lower()} ({top_theft_share})."
-        ),
-        "metrics": [
-            {"label": "Cobertura temporal", "value": f"{stats.start_date} a {stats.end_date}"},
-            {"label": "Foco principal", "value": f"{top_department.title()} {top_department_share}"},
-            {"label": "Modalidad dominante", "value": f"{top_theft_type.title()} {top_theft_share}"},
-        ],
-        "findings": [
-            {
-                "title": "Escalada reciente del registro",
-                "description": (
-                    f"El bloque 2023-2025 concentra {years_2023_2025_share} del total y {top_year} marca el punto "
-                    f"mas alto con {format_int_es(top_year_value)} casos. El corte 2026 llega hasta {stats.end_date}, "
-                    "por lo que debe leerse como periodo parcial."
-                ),
-            },
-            {
-                "title": "Patron operativo dominante",
-                "description": (
-                    f"{top_theft_type.title()} explica {top_theft_share} de la base. El registro aparece "
-                    f"principalmente en {top_gender.lower()} ({top_gender_share}) y en el grupo {top_age_group.lower()} "
-                    f"({top_age_group_share})."
-                ),
-            },
-            {
-                "title": "Focos y condicion del hecho",
-                "description": (
-                    f"{top_department.title()}, Bogota y Valle concentran una parte importante del volumen, mientras "
-                    f"{top_municipality.title()} lidera a nivel municipal con {format_int_es(top_municipality_value)} casos "
-                    f"({top_municipality_share}). En la variable de armas o medios domina {top_weapon.lower()} ({top_weapon_share})."
-                ),
-            },
-        ],
-        "actions": [
-            {
-                "title": "Seguir la ventana 2023-2025",
-                "description": (
-                    "Ese tramo concentra la mayor presion reciente y sirve como base para contrastar comportamiento por ciudad y tipo de hurto."
-                ),
-            },
-            {
-                "title": "Separar motocicletas y automotores",
-                "description": (
-                    "La predominancia de hurto a motocicletas aconseja indicadores y alertas propios para no mezclar dinamicas con automotores."
-                ),
-            },
-        ],
-        "coverageNote": (
-            f"Base IA: {format_int_es(stats.rows)} registros y {format_int_es(stats.total)} casos. "
-            f"Los cinco primeros departamentos concentran {top_five_departments_share} y el mes de mayor carga fue {format_month(peak_month)}."
-        ),
-    }
-
-    en = {
-        "summary": (
-            f"The assisted reading for vehicle theft records {format_int_en(stats.total)} cases across "
-            f"{format_int_en(stats.rows)} events between {stats.start_date} and {stats.end_date}. "
-            f"The highest volume appears in {top_year} with {format_int_en(top_year_value)} cases, with territorial "
-            f"focus in {top_department.title()} ({top_department_share}) and a clear dominance of "
-            f"{translate_common_en(top_theft_type)} ({top_theft_share})."
-        ),
-        "metrics": [
-            {"label": "Time coverage", "value": f"{stats.start_date} to {stats.end_date}"},
-            {"label": "Main hotspot", "value": f"{top_department.title()} {top_department_share}"},
-            {"label": "Dominant modality", "value": f"{translate_common_en(top_theft_type).title()} {top_theft_share}"},
-        ],
-        "findings": [
-            {
-                "title": "Recent rise in records",
-                "description": (
-                    f"The 2023-2025 block concentrates {years_2023_2025_share} of the total and {top_year} marks "
-                    f"the highest point with {format_int_en(top_year_value)} cases. The 2026 cut reaches {stats.end_date}, "
-                    "so it should be treated as a partial period."
-                ),
-            },
-            {
-                "title": "Dominant operational pattern",
-                "description": (
-                    f"{translate_common_en(top_theft_type).title()} explains {top_theft_share} of the dataset. The record is mainly found in "
-                    f"{translate_common_en(top_gender)} victims ({top_gender_share}) and in the {translate_common_en(top_age_group)} group "
-                    f"({top_age_group_share})."
-                ),
-            },
-            {
-                "title": "Hotspots and event condition",
-                "description": (
-                    f"{top_department.title()}, Bogota and Valle hold a large share of the volume, while "
-                    f"{top_municipality.title()} leads at municipality level with {format_int_en(top_municipality_value)} cases "
-                    f"({top_municipality_share}). The weapons or methods field is dominated by {translate_common_en(top_weapon)} ({top_weapon_share})."
-                ),
-            },
-        ],
-        "actions": [
-            {
-                "title": "Track the 2023-2025 window",
-                "description": (
-                    "That period concentrates the strongest recent pressure and is the best baseline for comparisons by city and theft type."
-                ),
-            },
-            {
-                "title": "Separate motorcycles from automobiles",
-                "description": (
-                    "The dominance of motorcycle theft supports dedicated indicators and alerts instead of mixing the pattern with automobiles."
-                ),
-            },
-        ],
-        "coverageNote": (
-            f"AI base: {format_int_en(stats.rows)} records and {format_int_en(stats.total)} cases. "
-            f"The top five departments account for {top_five_departments_share} and the heaviest month was {format_month(peak_month)}."
-        ),
-    }
-    return es, en
+def build_dataset_report(config: DatasetConfig) -> tuple[dict[str, object], dict[str, object]]:
+    rows = load_rows(config.file_name)
+    stats = build_stats(rows, config)
+    summary_es, summary_en = build_summary_report(config.key, stats)
+    predictive_es, predictive_en = build_predictive_report(rows, config)
+    summary_es["predictive"] = predictive_es
+    summary_en["predictive"] = predictive_en
+    return summary_es, summary_en
 
 
 def build_reports() -> dict[str, dict[str, object]]:
-    homicidios_es, homicidios_en = build_homicidios_report()
-    sexuales_es, sexuales_en = build_delitos_report()
-    hurtos_es, hurtos_en = build_hurtos_report()
+    homicidios_es, homicidios_en = build_dataset_report(CONFIGS["homicidios"])
+    sexuales_es, sexuales_en = build_dataset_report(CONFIGS["sexuales"])
+    hurtos_es, hurtos_en = build_dataset_report(CONFIGS["hurtos"])
 
     return {
         "es": {
@@ -597,8 +1067,7 @@ def build_reports() -> dict[str, dict[str, object]]:
     }
 
 
-def main() -> None:
-    data = build_reports()
+def write_typescript(data: dict[str, dict[str, object]]) -> None:
     content = """import { Language } from "../context/UiContext";
 
 export type AiReportMetric = {
@@ -611,12 +1080,46 @@ export type AiReportItem = {
   description: string;
 };
 
+export type AiForecastQuestionKey = "forecast" | "pressure" | "focus" | "action";
+
+export type AiForecastPoint = {
+  period: string;
+  value: number;
+};
+
+export type AiForecastTerritory = {
+  id: string;
+  label: string;
+  forecastPeriod: string;
+  forecastValue: number;
+  lastObservedValue: number;
+  changePct: number;
+  direction: "up" | "down" | "stable";
+  accuracyScore: number;
+  confidence: "high" | "medium" | "low";
+  risk: "high" | "medium" | "low";
+  dominantFactor: string;
+  hotspot: string;
+  modelLabelEs: string;
+  modelLabelEn: string;
+  historyMonths: number;
+  series: AiForecastPoint[];
+  recommendations: string[];
+  answers: Record<AiForecastQuestionKey, string>;
+};
+
+export type AiPredictiveReport = {
+  nextPeriod: string;
+  territories: AiForecastTerritory[];
+};
+
 export type AiReport = {
   summary: string;
   metrics: AiReportMetric[];
   findings: AiReportItem[];
   actions: AiReportItem[];
   coverageNote: string;
+  predictive: AiPredictiveReport;
 };
 
 type DashboardAiKey = "homicidios" | "sexuales" | "hurtos";
@@ -631,6 +1134,11 @@ export function getAiReport(language: Language, key: DashboardAiKey): AiReport {
 """
 
     OUTPUT_PATH.write_text(content, encoding="utf-8")
+
+
+def main() -> None:
+    reports = build_reports()
+    write_typescript(reports)
     print(f"CORRECTO: analisis IA generado en {OUTPUT_PATH.relative_to(BASE_DIR)}")
 
 

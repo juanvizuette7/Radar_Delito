@@ -1,0 +1,2 @@
+﻿dashboard,pregunta,grupo_comparado,variable_objetivo,unidad_analisis,grupos_validos,observaciones,estadistico_f,valor_p,decision,interpretacion
+Delitos sexuales,Hay diferencias significativas en la cantidad de delitos sexuales entre grupos etarios?,grupo_etario,cantidad,grupo_etario + periodo,3,265,58.604871,9.209931016054122e-22,Rechazar H0,Se rechaza la hipotesis nula: los resultados sugieren diferencias significativas entre algunos grupos.

@@ -44,6 +44,7 @@ export function Navbar() {
   const navItems = [
     { label: copy.home, to: "/" },
     ...dashboards.map(({ navLabel, path }) => ({ label: navLabel, to: path })),
+    { label: copy.statistics, to: "/estadistica" },
   ];
 
   const themeLabel = theme === "dark" ? copy.light : copy.dark;

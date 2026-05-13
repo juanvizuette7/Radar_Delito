@@ -1,3 +1,9 @@
 requests
 pyspark
 psycopg2-binary
+pandas
+numpy
+scipy
+statsmodels
+matplotlib
+python-dotenv
